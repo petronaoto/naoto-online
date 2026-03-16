@@ -3,96 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naoto.online | Journey Archives</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+    <title>naoto.online | Journey Memories</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --accent: #3498db;
-            --bg: #ffffff;
-            --card-bg: #f9f9f9;
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
         }
 
         body {
-            margin: 0;
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--primary);
-            background-color: var(--bg);
-            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         /* Hero Section */
-        header {
+        .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
             text-align: center;
+            color: white;
             padding: 0 20px;
         }
 
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 0.2rem;
-            margin-bottom: 0.5rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        header p {
+        .hero p {
             font-size: 1.2rem;
-            font-weight: 300;
-            max-width: 600px;
+            max-width: 800px;
+            margin-bottom: 2rem;
         }
 
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: -60px auto 0;
-            padding: 0 20px 100px;
-            position: relative;
-            z-index: 10;
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: -100px auto 50px;
+            padding: 0 20px;
         }
 
         .intro-card {
             background: white;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin-bottom: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
             text-align: center;
         }
 
-        .journey-grid {
+        .intro-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: var(--card-bg);
+        .journey-card {
+            background: white;
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .journey-card:hover {
+            transform: translateY(-10px);
         }
 
-        .card-image {
-            height: 250px;
+        .card-img {
+            height: 200px;
             background-size: cover;
             background-position: center;
         }
@@ -101,84 +105,102 @@
             padding: 25px;
         }
 
-        .card-date {
-            font-size: 0.8rem;
-            color: #888;
-            font-family: 'Montserrat', sans-serif;
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            margin: 10px 0;
-            color: var(--primary);
-        }
-
-        .card-description {
+        .card-content p {
             font-size: 0.95rem;
-            color: #555;
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        /* Footer */
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
         footer {
-            background: #111;
-            color: #666;
-            text-align: center;
+            background: var(--primary-color);
+            color: white;
             padding: 60px 20px;
+            text-align: center;
+            margin-top: 50px;
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            main { margin-top: -30px; }
+            .hero h1 { font-size: 2.5rem; }
+            .container { margin-top: -50px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>naoto.online</h1>
-        <p>My favorite memories of journey all over the world.</p>
-    </header>
+    <section class="hero">
+        <h1>My Memories of Journey</h1>
+        <p>走行距離6300kmにも及ぶバンクーバー⇔イエローナイフの旅。<br>
+        極北の冷気、雪原を駆けるJeep、そして手付かずの風景。</p>
+    </section>
 
-    <main>
-        <div class="intro-card">
-            <h2>Journey Records</h2>
-            <p>この記録は、かつて挑んだ壮大な旅の記憶である。地球の広さを知り、未踏の風景に心震わせたあの日々を、ここに。 </p>
+    <div class="container">
+        <section class="intro-card">
+            <h2>地球は広く、まだ人間はこの星を開発したとは言えない。</h2>
+            <p>2009年2月12日から約3週間の記録。氷点下26℃の極北でも、僕たちのハートが冷めることはなかった。あの時見た風景が、今も心の中で輝き続けています。</p>
+        </section>
+
+        <div class="grid">
+            <div class="journey-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <h3>2009 カナダ西部の旅</h3>
+                    <p>～オーロラを追いかける雪原上のGrand Cherokee～<br>バンクーバーからイエローナイフへ、壮大な冒険の記録。</p>
+                    <a href="#" class="btn">記録を見る</a>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <h3>2009 北海道ツーリング</h3>
+                    <p>～ただ一人、孤独と戦い日本最北端に立つ～<br>「あそこはロシアか…」宗谷岬で感じた異国の風。</p>
+                    <a href="#" class="btn">記録を見る</a>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518548419970-58e3b40e9bd1?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <h3>2010 インドネシア卒業旅行</h3>
+                    <p>～ダイビング三昧とジャングル探検～<br>ロンボク島の小島からスマトラ島の秘境へ。3人で行った最後の学生旅行。</p>
+                    <a href="#" class="btn">記録を見る</a>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <h3>2010 秋のカナダ旅行</h3>
+                    <p>～ロッキー登山とアラスカハイウェイ～<br>黄金色に染まる大地を8000km。再び踏みしめた大陸の土。</p>
+                    <a href="#" class="btn">記録を見る</a>
+                </div>
+            </div>
         </div>
-
-        <div class="journey-grid">
-            <a href="#" class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="card-content">
-                    <span class="card-date">2009.02 - 03</span>
-                    <h3 class="card-title">カナダ西部の旅</h3>
-                    <p class="card-description">走行距離6,300km。Jeep Grand Cherokeeと共にバンクーバーからイエローナイフへ。−26℃の極北で追いかけたオーロラ。</p>
-                </div>
-            </a>
-
-            <a href="#" class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1500049222539-6593a3800273?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="card-content">
-                    <span class="card-date">2009.09</span>
-                    <h3 class="card-title">北海道ツーリング</h3>
-                    <p class="card-description">ただ一人、孤独と戦い日本最北端に立つ。最果ての地で対面した異国の影と、旅人としての自覚。</p>
-                </div>
-            </a>
-
-            <a href="#" class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1512100356956-c1224c633a64?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="card-content">
-                    <span class="card-date">2010.03</span>
-                    <h3 class="card-title">インドネシア卒業旅行</h3>
-                    <p class="card-description">ロンボク島の小島でダイビング三昧、そしてスマトラ島でのジャングル探検。仲間と過ごした最後の冒険。</p>
-                </div>
-            </a>
-        </div>
-    </main>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Naoto Yamabe | Powered by Modern Web Technology</p>
+        <p>© 2026 naoto.online | Created by Naoto Yamabe</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">My favorite memories of journey all over the world...</p>
     </footer>
 
-    
 </body>
 </html>
