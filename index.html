@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naoto.online | Journey Archives</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #3498db;
+            --bg: #ffffff;
+            --card-bg: #f9f9f9;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--primary);
+            background-color: var(--bg);
+            line-height: 1.8;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: -60px auto 0;
+            padding: 0 20px 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: var(--primary);
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #666;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            main { margin-top: -30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>naoto.online</h1>
+        <p>My favorite memories of journey all over the world.</p>
+    </header>
+
+    <main>
+        <div class="intro-card">
+            <h2>Journey Records</h2>
+            <p>この記録は、かつて挑んだ壮大な旅の記憶である。地球の広さを知り、未踏の風景に心震わせたあの日々を、ここに。 </p>
+        </div>
+
+        <div class="journey-grid">
+            <a href="#" class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="card-content">
+                    <span class="card-date">2009.02 - 03</span>
+                    <h3 class="card-title">カナダ西部の旅</h3>
+                    <p class="card-description">走行距離6,300km。Jeep Grand Cherokeeと共にバンクーバーからイエローナイフへ。−26℃の極北で追いかけたオーロラ。</p>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1500049222539-6593a3800273?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="card-content">
+                    <span class="card-date">2009.09</span>
+                    <h3 class="card-title">北海道ツーリング</h3>
+                    <p class="card-description">ただ一人、孤独と戦い日本最北端に立つ。最果ての地で対面した異国の影と、旅人としての自覚。</p>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1512100356956-c1224c633a64?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="card-content">
+                    <span class="card-date">2010.03</span>
+                    <h3 class="card-title">インドネシア卒業旅行</h3>
+                    <p class="card-description">ロンボク島の小島でダイビング三昧、そしてスマトラ島でのジャングル探検。仲間と過ごした最後の冒険。</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Naoto Yamabe | Powered by Modern Web Technology</p>
+    </footer>
+
+</body>
+</html>
