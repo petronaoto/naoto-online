@@ -3,134 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journey to Western Canada 2009 | naoto.online</title>
+    <title>naoto.online | Journey Archive</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #1d1d1f;
+            --primary: #1d1d1f;
             --accent: #0066cc;
-            --secondary-bg: #f5f5f7;
+            --bg: #ffffff;
+            --card-bg: #f5f5f7;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.8;
+            color: var(--primary);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 50px;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
         .hero {
-            padding-top: 120px;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 100px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-        }
-        .quote {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #86868b;
-            margin-bottom: 50px;
-            line-height: 1.5;
-        }
-        .content-section {
-            max-width: 900px;
-            margin: 0 auto;
             padding: 0 20px;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80'); /* 仮の壮大な風景 */
+            background-size: cover;
+            background-position: center;
         }
-        .journal-entry {
-            margin-bottom: 120px;
-        }
-        .date {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-        .image-container {
-            margin: 40px 0;
-            border-radius: 12px;
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -0.03em; }
+        .hero p { font-size: 1.25rem; color: #515154; max-width: 600px; }
+
+        .container { max-width: 1100px; margin: -100px auto 100px; padding: 0 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             overflow: hidden;
-            background: var(--secondary-bg);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .description {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-        footer {
-            padding: 100px 0;
-            background: var(--secondary-bg);
-            text-align: center;
-            font-size: 0.9rem;
-            color: #86868b;
-        }
+        .card:hover { transform: scale(1.02); }
+        .card-img { height: 240px; background-size: cover; background-position: center; }
+        .card-content { padding: 30px; }
+        .card-content h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .card-content p { color: #86868b; font-size: 0.95rem; margin-bottom: 20px; }
+        .card-link { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 100px 20px; color: #86868b; font-size: 0.85rem; }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .quote { font-size: 1.1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .container { margin-top: -50px; }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="index.html"><i class="fas fa-chevron-left"></i> BACK TO TOP</a>
-    </nav>
 
     <header class="hero">
-        <p class="date">February - March 2009</p>
-        <h1>カナダ西部の旅</h1>
-        <p class="quote">「地球は広く、まだ人間はこの星を開発したとは言えない。<br>しかし、僕たちが見たあの風景は永遠に手付かずであってほしいと願う。」</p>
+        <h1>naoto.online</h1>
+        <p>My favorite memories of journey all over the world.</p>
     </header>
 
-    <main class="content-section">
-        <article class="journal-entry">
-            <div class="description">
-                この記録は、2009年2月12日から約三週間かけてカナダ西部地域を旅した一行に関するものである。
-                走行距離6300kmにも及ぶバンクーバー⇔イエローナイフをレンタカーであるJeep Grand Cherokeeとともに旅をした。
-            </div>
-            
-            <div class="image-container">
-                <img src="images/canada_main.jpg" alt="Jeep in Canada">
-            </div>
+    <div class="container">
+        <div class="grid">
+            <a href="2008canada/top.html" class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <p>February 2009</p>
+                    <h2>カナダ西部の旅</h2>
+                    <p>バンクーバーから極北イエローナイフへ。走行距離6300kmにおよぶ雪原の冒険。</p>
+                    <span class="card-link">記録を見る <i class="fas fa-chevron-right"></i></span>
+                </div>
+            </a>
 
-            <div class="description">
-                極北では気温は−26℃にも達したが、車も僕たちのハートも冷めることはなかった。
-                英語を勉強する意味がやっと見出せた。僕はもっと、勉強しなければ。いずれまた大陸の土を踏みたいと思っている。
-            </div>
-        </article>
-    </main>
+            <a href="2009hokkaido/top.html" class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-content">
+                    <p>August 2009</p>
+                    <h2>北海道ツーリング</h2>
+                    <p>ただ一人、孤独と戦い日本最北端に立つ。宗谷岬で見た異国の影。</p>
+                    <span class="card-link">記録を見る <i class="fas fa-chevron-right"></i></span>
+                </div>
+            </a>
 
-    <footer>
-        <p>© 2026 naoto.online | Created by Naoto Yamabe</p>
-    </footer>
-</body>
-</html>
+            <a href="2010indonesia/top.html" class="card">
+                <div class="card-img" style="background-image: url('
