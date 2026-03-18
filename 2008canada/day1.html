@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1: Departure - 旅立ち | naoto.online</title>
+    <title>Day 1: Departure - 成田からケロウナへ | naoto.online</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1d1d1f; --accent: #0066cc; --secondary-bg: #f5f5f7; }
-        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        :root { --bg: #ffffff; --text: #1c1c1e; --accent: #0066cc; --secondary-bg: #f5f5f7; --border: #d2d2d7; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
         .nav { position: fixed; top: 0; width: 100%; height: 50px; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); z-index: 1000; display: flex; align-items: center; padding: 0 5%; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .nav a { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; }
-        .hero { padding-top: 120px; text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .hero { padding-top: 120px; text-align: center; max-width: 900px; margin: 0 auto 40px; }
         .date { font-size: 1.1rem; font-weight: 600; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.1em; }
-        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
-        .content-section { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        .journal-block { margin-bottom: 60px; }
-        .image-container { margin: 40px 0; border-radius: 12px; overflow: hidden; background: var(--secondary-bg); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 10px; }
+        .hero .route { font-size: 1.2rem; color: #86868b; margin-bottom: 40px; }
+        .content-section { max-width: 850px; margin: 0 auto; padding: 0 20px; }
+        .journal-block { margin-bottom: 50px; }
+        .text-block { font-size: 1.15rem; margin-bottom: 25px; text-align: justify; white-space: pre-wrap; }
+        .image-group { margin: 40px 0; }
+        .image-container { margin-bottom: 30px; border-radius: 12px; overflow: hidden; background: var(--secondary-bg); border: 1px solid var(--border); }
         .image-container img { width: 100%; height: auto; display: block; }
-        .text-block { font-size: 1.1rem; margin-bottom: 25px; text-align: justify; }
-        .navigation-links { display: flex; justify-content: space-between; padding: 50px 0; border-top: 1px solid #e5e5e5; margin-top: 80px; }
-        .btn { padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .btn-back { color: var(--text); }
+        .image-caption { padding: 12px; font-size: 0.9rem; color: #6e6e73; text-align: center; background: #fff; border-top: 1px solid var(--border); }
+        .navigation-links { display: flex; justify-content: space-between; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 80px; }
+        .btn { padding: 14px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 1rem; }
+        .btn-back { color: var(--text); border: 1px solid var(--border); }
         .btn-next { background: var(--accent); color: white; }
-        footer { padding: 60px 0; background: var(--secondary-bg); text-align: center; font-size: 0.85rem; color: #86868b; }
+        footer { padding: 80px 0; background: var(--secondary-bg); text-align: center; font-size: 0.85rem; color: #86868b; }
     </style>
 </head>
 <body>
@@ -31,29 +34,69 @@
     <header class="hero">
         <p class="date">Day 1: Feb 12, 2009</p>
         <h1>旅立ちの朝、成田から銀世界へ</h1>
+        <p class="route">Narita → Vancouver → Kelowna</p>
     </header>
 
     <main class="content-section">
         <article class="journal-block">
-            <div class="text-block">
-                いよいよ旅立ちの日。2009年2月12日、成田国際空港第2ターミナル。
-                18:25発、JAL018便に乗り込み、期待と少しの不安を胸にカナダ・バンクーバーへと飛び立った。
+            <div class="text-block">いよいよ、カナダ西部の旅が始まる。2009年2月12日、成田国際空港第2ターミナル。
+18:25発、JAL018便。期待と少しの不安を胸に、まずはバンクーバーへと飛び立った。</div>
+            <div class="image-group">
+                <div class="image-container"><img src="day1_image001.jpg" alt="Arrival at Narita"><p class="image-caption">成田空港へ到着</p></div>
+                <div class="image-container"><img src="day1_image002.jpg" alt="Check-in Counter"><p class="image-caption">チェックインを済ませる</p></div>
+                <div class="image-container"><img src="day1_image003.jpg" alt="Friends sending off"><p class="image-caption">友人たちの見送り</p></div>
+                <div class="image-container"><img src="day1_image004.jpg" alt="Group photo"><p class="image-caption">出発前の記念撮影</p></div>
+                <div class="image-container"><img src="day1_image005.jpg" alt="Boarding Gate"><p class="image-caption">ゲートへ向かう</p></div>
+                <div class="image-container"><img src="day1_image006.jpg" alt="Airplane JAL018"><p class="image-caption">搭乗するJAL018便</p></div>
             </div>
-            <div class="image-container"><img src="day1_image002.jpg" alt="Narita Airport Departure"></div>
-            
-            <div class="text-block">
-                約8時間半のフライトを経て、日付変更線を越え、再び2月12日の午前中に到着。
-                バンクーバー国際空港の入国審査を終え、国内線ターミナルへ移動。ここからケロウナ(Kelowna)行きのプロペラ機に乗り換える。
-            </div>
-            <div class="image-container"><img src="day1_image004.jpg" alt="Transfer to Kelowna"></div>
 
-            <div class="text-block">
-                ケロウナに到着すると、そこは一面の銀世界。空港で待ち構えていたのは、これから19日間、6300kmの旅を共にする頼もしい相棒、Jeep Grand Cherokee。
+            <div class="text-block">約8時間半のフライト。日付変更線を越え、再び2月12日の午前11時前にバンクーバー国際空港へと降り立った。
+入国審査を終え、巨大なトーテムポールが出迎えてくれる到着ロビーへ。</div>
+            <div class="image-group">
+                <div class="image-container"><img src="day1_image007.jpg" alt="Vancouver Airport arrival"><p class="image-caption">バンクーバー到着</p></div>
+                <div class="image-container"><img src="day1_image008.jpg" alt="Immigration"><p class="image-caption">入国審査エリア</p></div>
+                <div class="image-container"><img src="day1_image009.jpg" alt="Baggage Claim"><p class="image-caption">荷物を受け取り国内線へ</p></div>
             </div>
-            <div class="image-container"><img src="day1_image006.jpg" alt="Our Jeep Grand Cherokee"></div>
 
-            <div class="text-block">
-                まずは街へ繰り出し、当面の食料や備品を調達。スーパーマーケットでの買い出しも海外旅行の醍醐味だ。
-                その後、最初の宿泊先となるモーテルにチェックイン。
+            <div class="text-block">ここからさらに国内線に乗り換え、今回の旅の起点となるケロウナ(Kelowna)へと向かう。
+プロペラ機から見下ろすカナダの山々は、すでに深い雪に閉ざされていた。</div>
+            <div class="image-group">
+                <div class="image-container"><img src="day1_image010.jpg" alt="Domestic terminal"><p class="image-caption">国内線ターミナルへ移動</p></div>
+                <div class="image-container"><img src="day1_image011.jpg" alt="Propeller plane"><p class="image-caption">ケロウナ行きのプロペラ機</p></div>
+                <div class="image-container"><img src="day1_image012.jpg" alt="View from window"><p class="image-caption">機窓からの雪景色</p></div>
+                <div class="image-container"><img src="day1_image013.jpg" alt="Kelowna Airport arrival"><p class="image-caption">ケロウナ空港に到着</p></div>
             </div>
-            <div class="image-container"><img src="day1_image008.jpg" alt="Grocery
+
+            <div class="text-block">ケロウナ空港に降り立つと、そこは零下の世界。
+ここで今回の旅を20日間、6300kmにわたって支えてくれる相棒、Jeep Grand Cherokeeと対面する。
+タイヤの溝を確認し、荷物を積み込み、まずは市街地のスーパーマーケットへと向かった。</div>
+            <div class="image-group">
+                <div class="image-container"><img src="day1_image014.jpg" alt="First meeting with Jeep"><p class="image-caption">相棒のJeep Grand Cherokee</p></div>
+                <div class="image-container"><img src="day1_image015.jpg" alt="Jeep tire check"><p class="image-caption">雪道走行に備えたタイヤチェック</p></div>
+                <div class="image-container"><img src="day1_image016.jpg" alt="Loading baggage"><p class="image-caption">荷物の積み込み作業</p></div>
+                <div class="image-container"><img src="day1_image017.jpg" alt="Safeway shopping"><p class="image-caption">SAFEWAYで買い出し</p></div>
+                <div class="image-container"><img src="day1_image018.jpg" alt="Inside supermarket"><p class="image-caption">広大な店内に圧倒される</p></div>
+            </div>
+
+            <div class="text-block">初日の宿、モーテルに到着。
+しかし、ゆっくり休む暇はない。明日からの本格的な移動に備え、部屋いっぱいに広げた装備を整理・パッキングし直す。
+スキー板、キャンプ道具、食料品……。このパズルを解かなければ旅は始まらない。</div>
+            <div class="image-group">
+                <div class="image-container"><img src="day1_image019.jpg" alt="Motel arrival"><p class="image-caption">初日の宿泊先モーテル</p></div>
+                <div class="image-container"><img src="day1_image020.jpg" alt="Packing in room"><p class="image-caption">部屋でのパッキング作業</p></div>
+                <div class="image-container"><img src="day1_image021.jpg" alt="Sorting gear"><p class="image-caption">装備の最終チェック</p></div>
+                <div class="image-container"><img src="day1_image022.jpg" alt="Kitchen set prep"><p class="image-caption">自炊道具の整理</p></div>
+                <div class="image-container"><img src="day1_image023.jpg" alt="Finished packing"><p class="image-caption">なんとか形になった</p></div>
+                <div class="image-container"><img src="day1_image024.jpg" alt="Rest after work"><p class="image-caption">長い一日が終わる</p></div>
+            </div>
+        </article>
+
+        <div class="navigation-links">
+            <a href="top.html" class="btn btn-back">TOPへ戻る</a>
+            <a href="day2.html" class="btn btn-next">Day 2へ <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </main>
+
+    <footer><p>© 2026 naoto.online</p></footer>
+</body>
+</html>
