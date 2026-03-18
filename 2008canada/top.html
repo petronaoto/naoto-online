@@ -3,215 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カナダ西部の旅 2009 | naoto.online</title>
+    <title>カナダ西部の旅 2008 | naoto.online</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1d1d1f;
-            --accent: #0066cc;
-            --bg: #ffffff;
-            --secondary-bg: #f5f5f7;
-        }
+        :root { --primary: #1d1d1f; --accent: #0066cc; --bg: #ffffff; --secondary-bg: #f5f5f7; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--primary);
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
-        }
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 50px;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .nav a { text-decoration: none; color: var(--primary); font-size: 0.9rem; font-weight: 500; }
-
-        header.hero {
-            height: 65vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            /* パスをフォルダ直下のファイル名に修正 */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('day15_image009.jpg'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
-        .hero h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 15px; text-shadow: 0 2px 15px rgba(0,0,0,0.5); }
-        .hero p.meta { font-weight: 600; margin-bottom: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
-        .hero p.sub { font-size: 1.2rem; opacity: 0.9; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
-        
-        .intro-section { 
-            margin-bottom: 100px; 
-            font-size: 1.15rem; 
-            color: #424245;
-            text-align: center;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .intro-section p { margin-bottom: 25px; }
-
-        .timeline-section h2 { 
-            font-size: 2.2rem; 
-            margin-bottom: 50px; 
-            text-align: center; 
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-        
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .day-link {
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            background: var(--secondary-bg);
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--primary);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
-        }
-        .day-link:hover {
-            background: var(--bg);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #e5e5e7;
-        }
-        .day-num { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.1em; }
-        .day-title { font-size: 1.15rem; font-weight: 600; line-height: 1.4; }
-
-        footer { text-align: center; padding: 120px 20px; color: #86868b; font-size: 0.85rem; border-top: 1px solid #f2f2f2; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .timeline-grid { grid-template-columns: 1fr; }
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background-color: var(--bg); color: var(--primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        .nav { position: fixed; top: 0; width: 100%; height: 50px; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 5%; }
+        .hero { padding: 120px 5% 60px; text-align: center; background: var(--secondary-bg); }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .day-link { display: block; background: var(--secondary-bg); padding: 20px; border-radius: 12px; text-decoration: none; color: var(--primary); transition: all 0.3s ease; border: 1px solid transparent; }
+        .day-link:hover { transform: translateY(-5px); border-color: var(--accent); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .day-num { display: block; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
+        .day-title { display: block; font-size: 1.1rem; font-weight: 600; }
+        footer { text-align: center; padding: 60px 0; color: #86868b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-    <nav class="nav">
-        <a href="../index.html"><i class="fas fa-chevron-left"></i> BACK TO TOP</a>
-    </nav>
-
+    <nav class="nav"><strong>naoto.online</strong></nav>
     <header class="hero">
-        <p class="meta">February 12 - March 4, 2009</p>
-        <h1>カナダ西部の旅</h1>
-        <p class="sub">スキー＆スノボと漆黒の夜空に舞うオーロラ</p>
+        <h1>Canada 2008</h1>
+        <p>バンクーバーからイエローナイフ、そしてロッキーを巡る19日間の記録</p>
     </header>
 
     <div class="container">
-        <section class="intro-section">
-            <p>走行距離6300kmにも及ぶバンクーバー⇔イエローナイフをJeep Grand Cherokeeとともに走破した記録。</p>
-            <p>極北の冷気、手付かずの風景、そして僕たちの旅路。あの風景は永遠に手付かずであってほしいと願う。</p>
-        </section>
-
-        <section class="timeline-section">
-            <h2>Journey Timeline</h2>
-            <div class="timeline-grid">
-                <a href="day1.html" class="day-link">
-                    <span class="day-num">Day 01</span>
-                    <span class="day-title">旅立ちの朝、成田から銀世界へ</span>
-                </a>
-                <a href="day2.html" class="day-link">
-                    <span class="day-num">Day 02</span>
-                    <span class="day-title">ケロウナの雪山と相棒のJeep</span>
-                </a>
-                <a href="day3.html" class="day-link">
-                    <span class="day-num">Day 03</span>
-                    <span class="day-title">白銀のハイウェイを北へ</span>
-                </a>
-                <a href="day4.html" class="day-link">
-                    <span class="day-num">Day 04</span>
-                    <span class="day-title">カスケード山脈の懐にて</span>
-                </a>
-                <a href="day5.html" class="day-link">
-                    <span class="day-num">Day 05</span>
-                    <span class="day-title">静寂に包まれた極寒のキャンプ</span>
-                </a>
-                <a href="day6.html" class="day-link">
-                    <span class="day-num">Day 06</span>
-                    <span class="day-title">マイナス20度の洗礼</span>
-                </a>
-                <a href="day7.html" class="day-link">
-                    <span class="day-num">Day 07</span>
-                    <span class="day-title">ノースウェスト準州へ突入</span>
-                </a>
-                <a href="day8.html" class="day-link">
-                    <span class="day-num">Day 08</span>
-                    <span class="day-title">イエローナイフ、遥かなる街</span>
-                </a>
-                <a href="day9.html" class="day-link">
-                    <span class="day-num">Day 09</span>
-                    <span class="day-title">漆黒の夜空、オーロラを待つ</span>
-                </a>
-                <a href="day10.html" class="day-link">
-                    <span class="day-num">Day 10</span>
-                    <span class="day-title">凍結した湖上を駆ける</span>
-                </a>
-                <a href="day11.html" class="day-link">
-                    <span class="day-num">Day 11</span>
-                    <span class="day-title">極北の生活、街の息吹</span>
-                </a>
-                <a href="day12.html" class="day-link">
-                    <span class="day-num">Day 12</span>
-                    <span class="day-title">オーロラ爆発の夜</span>
-                </a>
-                <a href="day13.html" class="day-link">
-                    <span class="day-num">Day 13</span>
-                    <span class="day-title">帰路への決意、南下開始</span>
-                </a>
-                <a href="day14.html" class="day-link">
-                    <span class="day-num">Day 14</span>
-                    <span class="day-title">吹雪のハイウェイを越えて</span>
-                </a>
-                <a href="day15.html" class="day-link">
-                    <span class="day-num">Day 15</span>
-                    <span class="day-title">カナディアンロッキーの偉容</span>
-                </a>
-                <a href="day16.html" class="day-link">
-                    <span class="day-num">Day 16</span>
-                    <span class="day-title">温泉と氷河のコントラスト</span>
-                </a>
-                <a href="day17.html" class="day-link">
-                    <span class="day-num">Day 17</span>
-                    <span class="day-title">バンクーバーへの帰還</span>
-                </a>
-                <a href="day18.html" class="day-link">
-                    <span class="day-num">Day 18</span>
-                    <span class="day-title">旅の終焉、別れの時</span>
-                </a>
-                <a href="day19.html" class="day-link">
-                    <span class="day-num">Day 19</span>
-                    <span class="day-title">再び日本へ、終わらない記憶</span>
-                </a>
-            </div>
-        </section>
+        <div class="grid">
+            <a href="day1.html" class="day-link">
+                <span class="day-num">Day 1</span>
+                <span class="day-title">旅立ち、バンクーバーへ</span>
+            </a>
+            <a href="day2.html" class="day-link">
+                <span class="day-num">Day 2</span>
+                <span class="day-title">Squamish ⇔ Whistler (1)</span>
+            </a>
+            <a href="day3.html" class="day-link">
+                <span class="day-num">Day 3</span>
+                <span class="day-title">Squamish ⇔ Whistler (2)</span>
+            </a>
+            <a href="day4.html" class="day-link">
+                <span class="day-num">Day 4</span>
+                <span class="day-title">Squamish ⇔ Whistler (3)</span>
+            </a>
+            <a href="day5.html" class="day-link">
+                <span class="day-num">Day 5</span>
+                <span class="day-title">Squamish ⇔ Whistler (4)</span>
+            </a>
+            <a href="day6.html" class="day-link">
+                <span class="day-num">Day 6</span>
+                <span class="day-title">Squamish → Jasper</span>
+            </a>
+            <a href="day7.html" class="day-link">
+                <span class="day-num">Day 7</span>
+                <span class="day-title">Jasper → High Level</span>
+            </a>
+            <a href="day8.html" class="day-link">
+                <span class="day-num">Day 8</span>
+                <span class="day-title">High Level → Yellowknife</span>
+            </a>
+            <a href="day9.html" class="day-link">
+                <span class="day-num">Day 9</span>
+                <span class="day-title">Yellowknife (stay) - 1</span>
+            </a>
+            <a href="day10.html" class="day-link">
+                <span class="day-num">Day 10</span>
+                <span class="day-title">Yellowknife (stay) - 2</span>
+            </a>
+            <a href="day11.html" class="day-link">
+                <span class="day-num">Day 11</span>
+                <span class="day-title">Yellowknife → High Level</span>
+            </a>
+            <a href="day12.html" class="day-link">
+                <span class="day-num">Day 12</span>
+                <span class="day-title">High Level → Manning</span>
+            </a>
+            <a href="day13.html" class="day-link">
+                <span class="day-num">Day 13</span>
+                <span class="day-title">Manning → Edmonton</span>
+            </a>
+            <a href="day14.html" class="day-link">
+                <span class="day-num">Day 14</span>
+                <span class="day-title">Edmonton → Radium Hot Springs</span>
+            </a>
+            <a href="day15.html" class="day-link">
+                <span class="day-num">Day 15</span>
+                <span class="day-title">Radium Hot Springs → Vancouver</span>
+            </a>
+            <a href="day16.html" class="day-link">
+                <span class="day-num">Day 16</span>
+                <span class="day-title">Vancouver (stay)</span>
+            </a>
+            <a href="day17-19.html" class="day-link">
+                <span class="day-num">Day 17-19</span>
+                <span class="day-title">さらばカナダ、帰国の途</span>
+            </a>
+        </div>
     </div>
 
-    <footer>
-        <p>© 2026 naoto.online | 2009 Canada Journey Archive</p>
-    </footer>
-
+    <footer><p>© 2026 naoto.online</p></footer>
 </body>
 </html>
