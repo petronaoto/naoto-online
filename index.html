@@ -3,204 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naoto.online | Journey Memories</title>
+    <title>Journey to Western Canada 2009 | naoto.online</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --accent: #0066cc;
+            --secondary-bg: #f5f5f7;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 0 5%;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .hero {
+            padding-top: 120px;
             text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
             max-width: 800px;
-            margin-bottom: 2rem;
+            margin: 0 auto 100px;
         }
-
-        /* Content Sections */
-        .container {
-            max-width: 1100px;
-            margin: -100px auto 50px;
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+        }
+        .quote {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #86868b;
+            margin-bottom: 50px;
+            line-height: 1.5;
+        }
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 0 20px;
         }
-
-        .intro-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 50px;
-            text-align: center;
+        .journal-entry {
+            margin-bottom: 120px;
         }
-
-        .intro-card h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+        .date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .journey-card {
-            background: white;
+        .image-container {
+            margin: 40px 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            background: var(--secondary-bg);
         }
-
-        .journey-card:hover {
-            transform: translateY(-10px);
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
-
-        .card-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .card-content p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
-
         footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 60px 20px;
+            padding: 100px 0;
+            background: var(--secondary-bg);
             text-align: center;
-            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #86868b;
         }
-
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .container { margin-top: -50px; }
+            .hero h1 { font-size: 2.2rem; }
+            .quote { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="index.html"><i class="fas fa-chevron-left"></i> BACK TO TOP</a>
+    </nav>
 
-    <section class="hero">
-        <h1>My Memories of Journey</h1>
-        <p>走行距離6300kmにも及ぶバンクーバー⇔イエローナイフの旅。<br>
-        極北の冷気、雪原を駆けるJeep、そして手付かずの風景。</p>
-    </section>
+    <header class="hero">
+        <p class="date">February - March 2009</p>
+        <h1>カナダ西部の旅</h1>
+        <p class="quote">「地球は広く、まだ人間はこの星を開発したとは言えない。<br>しかし、僕たちが見たあの風景は永遠に手付かずであってほしいと願う。」</p>
+    </header>
 
-    <div class="container">
-        <section class="intro-card">
-            <h2>地球は広く、まだ人間はこの星を開発したとは言えない。</h2>
-            <p>2009年2月12日から約3週間の記録。氷点下26℃の極北でも、僕たちのハートが冷めることはなかった。あの時見た風景が、今も心の中で輝き続けています。</p>
-        </section>
-
-        <div class="grid">
-            <div class="journey-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>2009 カナダ西部の旅</h3>
-                    <p>～オーロラを追いかける雪原上のGrand Cherokee～<br>バンクーバーからイエローナイフへ、壮大な冒険の記録。</p>
-                    <a href="#" class="btn">記録を見る</a>
-                </div>
+    <main class="content-section">
+        <article class="journal-entry">
+            <div class="description">
+                この記録は、2009年2月12日から約三週間かけてカナダ西部地域を旅した一行に関するものである。
+                走行距離6300kmにも及ぶバンクーバー⇔イエローナイフをレンタカーであるJeep Grand Cherokeeとともに旅をした。
+            </div>
+            
+            <div class="image-container">
+                <img src="images/canada_main.jpg" alt="Jeep in Canada">
             </div>
 
-            <div class="journey-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>2009 北海道ツーリング</h3>
-                    <p>～ただ一人、孤独と戦い日本最北端に立つ～<br>「あそこはロシアか…」宗谷岬で感じた異国の風。</p>
-                    <a href="#" class="btn">記録を見る</a>
-                </div>
+            <div class="description">
+                極北では気温は−26℃にも達したが、車も僕たちのハートも冷めることはなかった。
+                英語を勉強する意味がやっと見出せた。僕はもっと、勉強しなければ。いずれまた大陸の土を踏みたいと思っている。
             </div>
-
-            <div class="journey-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518548419970-58e3b40e9bd1?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>2010 インドネシア卒業旅行</h3>
-                    <p>～ダイビング三昧とジャングル探検～<br>ロンボク島の小島からスマトラ島の秘境へ。3人で行った最後の学生旅行。</p>
-                    <a href="#" class="btn">記録を見る</a>
-                </div>
-            </div>
-
-            <div class="journey-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>2010 秋のカナダ旅行</h3>
-                    <p>～ロッキー登山とアラスカハイウェイ～<br>黄金色に染まる大地を8000km。再び踏みしめた大陸の土。</p>
-                    <a href="#" class="btn">記録を見る</a>
-                </div>
-            </div>
-        </div>
-    </div>
+        </article>
+    </main>
 
     <footer>
         <p>© 2026 naoto.online | Created by Naoto Yamabe</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">My favorite memories of journey all over the world...</p>
     </footer>
-
 </body>
 </html>
