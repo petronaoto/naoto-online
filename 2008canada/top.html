@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カナダ西部の旅 2009 | naoto.online</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1d1d1f;
+            --accent: #0066cc;
+            --bg: #ffffff;
+            --secondary-bg: #f5f5f7;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .nav a { text-decoration: none; color: var(--primary); font-size: 0.9rem; font-weight: 500; }
+
+        header.hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+            background-color: var(--secondary-bg);
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+        .hero p.meta { color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        
+        .intro-section { margin-bottom: 80px; font-size: 1.15rem; color: #424245; }
+        .intro-section p { margin-bottom: 20px; }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .day-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .day-link:hover {
+            background: var(--bg);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-note {
+            margin-top: 100px;
+            padding: 40px;
+            border-radius: 20px;
+            background: var(--secondary-bg);
+            text-align: center;
+        }
+
+        footer { text-align: center; padding: 60px 20px; color: #86868b; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="../index.html"><i class="fas fa-chevron-left"></i> BACK TO TOP</a>
+    </nav>
+
+    <header class="hero">
+        <p class="meta">2009.02.12 - 2009.03.04</p>
+        <h1>カナダ西部の旅</h1>
+        <p>スキー＆スノボと漆黒の夜空に舞うオーロラ</p>
+    </header>
+
+    <div class="container">
+        <section class="intro-section">
+            <p>この記録は、2009年2月12日から約三週間かけてカナダ西部地域を旅した一行に関するものである。</p>
+            <p>走行距離6300kmにも及ぶバンクーバー⇔イエローナイフをレンタカーであるJeep Grand Cherokeeとともに旅をした。極北では気温は−26℃にも達したが、車も僕たちのハートも冷めることはなかった。</p>
+            <p>旅を終えて思うことは、地球は広く、まだまだ人間はこの星を開発したとは言えないということ。しかし、僕たちが見たあの風景は永遠に手付かずであってほしいと願う。</p>
+        </section>
+
+        <h2>Journey Timeline</h2>
+        <div class="timeline-grid">
+            <a href="day1.html" class="day-link">Day 1: 旅立ち</a>
+            <a href="day2.html" class="day-link">Day 2</a>
+            <a href="day3.html" class="day-link">Day 3</a>
+            <a href="day4.html" class="day-link">Day 4</a>
+            <a href="day5.html" class="day-link">Day 5</a>
+            <a href="day6.html" class="day-link">Day 6</a>
+            <a href="day7.html" class="day-link
