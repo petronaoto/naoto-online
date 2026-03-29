@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北海道ツーリングの記録 | naoto.online</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #1d1d1f; --accent: #0066cc; --secondary-bg: #f5f5f7; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        
+        /* すりガラス風ナビゲーションバー */
+        .nav { position: fixed; top: 0; width: 100%; height: 50px; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 5%; }
+        .nav a { text-decoration: none; color: var(--text); font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .nav a:hover { color: var(--accent); }
+        
+        /* タイトルエリア */
+        .hero { padding-top: 100px; text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .hero h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; }
+        
+        /* メインコンテンツエリア */
+        .content-section { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 自動流し込み用の画像・テキストスタイル */
+        .image-container { margin: 30px 0; text-align: center; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .text-block { margin-bottom: 25px; white-space: pre-wrap; font-size: 1.05rem; }
+        
+        /* 前後ページへのリンクボタン */
+        .navigation-links { display: flex; justify-content: center; gap: 20px; padding: 40px 0; border-top: 1px solid #e5e5e5; }
+        .btn { padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #d2d2d7; color: var(--text); transition: all 0.3s; }
+        .btn:hover { background: var(--secondary-bg); border-color: var(--text); }
+        
+        footer { padding: 40px 0; background: var(--secondary-bg); text-align: center; font-size: 0.8rem; color: #86868b; }
+
+        /* 目次用専用デザイン */
+        .toc-list { display: flex; flex-direction: column; gap: 12px; margin: 30px 0 50px; }
+        .toc-item { display: flex; align-items: center; padding: 18px 25px; background: var(--secondary-bg); border-radius: 12px; text-decoration: none; color: var(--text); font-weight: bold; transition: all 0.2s; border: 1px solid transparent; }
+        .toc-item:hover { background: #ffffff; border-color: var(--accent); transform: translateX(5px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); color: var(--accent); }
+        .toc-item i { margin-right: 15px; font-size: 1.2rem; color: var(--accent); width: 20px; text-align: center; }
+        .section-title { font-weight: bold; font-size: 1.2rem; border-bottom: 2px solid var(--accent); display: inline-block; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html"><i class="fas fa-chevron-left"></i> INDEX</a>
+    </nav>
+    
+    <header class="hero">
+        <h1>北海道ツーリングの記録</h1>
+    </header>
+
+    <main class="content-section">
+        <div class="text-block section-title">全行程</div>
+        <div class="text-block" style="font-size: 0.95rem; color: #555;">東名名古屋IC→(東名高速)→(中央自動車道)→(長野自動車道)→(上信越自動車道)→(北陸自動車道)→(磐越自動車道)→(東北自動車道)→青森東IC→恐山→函館→羊蹄山→小樽→(札樽自動車道)→(道央自動車道)→旭川鷹栖IC→層雲峡→足寄→釧路→標津(⇔野付半島)→羅臼→ウトロ→網走→紋別→宗谷岬→ノシャップ岬→サロベツ原野→留萌→小樽→(新日本海フェリー)→新潟→名古屋</div>
+
+        <div class="image-container"><img src="hokkaidotop_image002.jpg" alt="ルートマップ"></div>
+
+        <div class="text-block section-title">旅行者紹介(単独行)</div>
+        <div class="image-container"><img src="hokkaidotop_image004.gif" alt="旅行者写真"></div>
+
+        <div class="text-block section-title" style="margin-top: 30px; border-bottom: none; text-align: center; width: 100%; font-size: 1.5rem;">目次</div>
+
+        <div class="toc-list">
+            <a href="hokkaido1.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 出発～大間(青森)</a>
+            <a href="hokkaido2.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 大間(青森)～函館</a>
+            <a href="hokkaido3.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 函館～層雲峡</a>
+            <a href="hokkaido4.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 層雲峡～釧路</a>
+            <a href="hokkaido5.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 釧路～知床</a>
+            <a href="hokkaido6.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 知床～稚内</a>
+            <a href="hokkaido7.htm" class="toc-item"><i class="fas fa-motorcycle"></i> 稚内～小樽</a>
+        </div>
+
+        <div class="navigation-links">
+            <a href="hokkaido1.htm" class="btn">旅行記を読む <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <footer><p>© 2026 naoto.online</p></footer>
+</body>
+</html>

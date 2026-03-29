@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カナダ西部の旅 2008 | naoto.online</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #1d1d1f; --accent: #0066cc; --bg: #ffffff; --secondary-bg: rgba(245, 245, 247, 0.9); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+            color: var(--primary); 
+            line-height: 1.8; 
+            -webkit-font-smoothing: antialiased;
+            /* body全体の背景画像（Dayページへの繋ぎ） */
+            background-image: url('day16_image019.jpg'); 
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .nav { position: fixed; top: 0; width: 100%; height: 50px; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 5%; }
+        .nav a { text-decoration: none; color: var(--primary); font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .nav a:hover { color: var(--accent); }
+        
+        /* 【修正箇所】ヒーローセクションに背景画像を設定 */
+        .hero { 
+            padding: 120px 5% 80px; /* 下部の余白を少し広げる */
+            text-align: center; 
+            
+            /* ヒーローセクション専用の背景画像を設定 */
+            /* テキストの可読性確保のため、画像の上に白のグラデーションオーバーレイを重ねる */
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 100%),
+                url('day2_image008.jpg') no-repeat center center / cover;
+            
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        .hero h1 { font-size: 3rem; /* 少し大きく */ font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.2rem; font-weight: 500; color: #333; }
+        
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        
+        .day-link { display: block; background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 12px; text-decoration: none; color: var(--primary); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .day-link:hover { transform: translateY(-5px); border-color: var(--accent); background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .day-num { display: block; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
+        .day-title { display: block; font-size: 1.1rem; font-weight: 600; }
+        
+        footer { text-align: center; padding: 40px 0 60px; color: #333; font-size: 0.9rem; font-weight: 500; text-shadow: 0 0 5px rgba(255,255,255,0.8); }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html"><i class="fas fa-home"></i> naoto.online HOME</a>
+    </nav>
+    <header class="hero">
+        <h1>Canada 2008</h1>
+        <p>バンクーバーからイエローナイフ、そしてロッキーを巡る19日間の記録</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <a href="day1.html" class="day-link">
+                <span class="day-num">Day 1</span>
+                <span class="day-title">旅立ち、バンクーバーへ</span>
+            </a>
+            <a href="day17-19.html" class="day-link">
+                <span class="day-num">Day 17-19</span>
+                <span class="day-title">さらばカナダ、帰国の途</span>
+            </a>
+        </div>
+    </div>
+
+    <footer><p>© 2026 naoto.online</p></footer>
+</body>
+</html>
