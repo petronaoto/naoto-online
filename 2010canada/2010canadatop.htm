@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カナダ旅行記 | naoto.online</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #1d1d1f; --accent: #0066cc; --secondary-bg: #f5f5f7; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        
+        /* すりガラス風ナビゲーションバー */
+        .nav { position: fixed; top: 0; width: 100%; height: 50px; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 5%; }
+        .nav a { text-decoration: none; color: var(--text); font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .nav a:hover { color: var(--accent); }
+        
+        /* タイトルエリア */
+        .hero { padding-top: 100px; text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .hero h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; }
+        
+        /* メインコンテンツエリア */
+        .content-section { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 自動流し込み用の画像・テキストスタイル */
+        .image-container { margin: 30px 0; text-align: center; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .text-block { margin-bottom: 25px; white-space: pre-wrap; font-size: 1.05rem; }
+        
+        /* 前後ページへのリンクボタン */
+        .navigation-links { display: flex; justify-content: center; gap: 20px; padding: 40px 0; border-top: 1px solid #e5e5e5; }
+        .btn { padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #d2d2d7; color: var(--text); transition: all 0.3s; }
+        .btn:hover { background: var(--secondary-bg); border-color: var(--text); }
+        
+        footer { padding: 40px 0; background: var(--secondary-bg); text-align: center; font-size: 0.8rem; color: #86868b; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html"><i class="fas fa-chevron-left"></i> INDEX</a>
+    </nav>
+    
+    <header class="hero">
+        <h1>カナディアンロッキーと<br>黄金色のアラスカハイウェイ</h1>
+    </header>
+
+    <main class="content-section">
+        
+    <div class="text-block section-title" style="font-weight: bold; font-size: 1.4rem; border-bottom: 2px solid var(--accent); display: inline-block; margin: 20px 0;">旅行概要</div>
+    <div class="text-block"><strong>旅行時期:</strong> 2010年秋</div>
+    <div class="text-block"><strong>旅行地域:</strong> カナダ西部、アラスカハイウェイ</div>
+
+    <div class="text-block section-title" style="font-weight: bold; font-size: 1.4rem; border-bottom: 2px solid var(--accent); display: inline-block; margin: 40px 0 20px;">全日程の記録 (目次)</div>
+    <div style="display: grid; gap: 10px; margin-bottom: 50px;">
+    
+        <a href="day1.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">1日目(9/4)</span>
+            <span>Japan to Canada via U.S.A.</span>
+        </a>
+        
+        <a href="day2.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">2日目(9/5)</span>
+            <span>Seattle to Kamloops</span>
+        </a>
+        
+        <a href="day3.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">3日目(9/6)</span>
+            <span>Kamloops to Mt.Robson Provincial Park</span>
+        </a>
+        
+        <a href="day4.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">4日目(9/7)</span>
+            <span>Mt.Robson (カナディアンロッキー登山)</span>
+        </a>
+        
+        <a href="day5.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">5日目(9/8)</span>
+            <span>Mt.Robson Provincial Park to Jasper</span>
+        </a>
+        
+        <a href="day6.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">6日目(9/9)</span>
+            <span>Whistlers Campground</span>
+        </a>
+        
+        <a href="day7.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">7日目(9/10)</span>
+            <span>Jasper to Edmonton</span>
+        </a>
+        
+        <a href="day8.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">8日目(9/11)</span>
+            <span>Edmonton (ウエスト・エドモントン・モール)</span>
+        </a>
+        
+        <a href="day9.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">9日目(9/12)</span>
+            <span>Edmonton to Valleyview</span>
+        </a>
+        
+        <a href="day10.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">10日目(9/13)</span>
+            <span>Valleyview to Fort Nelson</span>
+        </a>
+        
+        <a href="day11.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">11日目(9/14)</span>
+            <span>Fort Nelson to Watson Lake</span>
+        </a>
+        
+        <a href="day12.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">12日目(9/15)</span>
+            <span>Watson Lake to Whitehorse (Takhini Hot Springs)</span>
+        </a>
+        
+        <a href="day13.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">13日目(9/16)</span>
+            <span>Whitehorse to Dawson City (オーロラ観測)</span>
+        </a>
+        
+        <a href="day14.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">14日目(9/17)</span>
+            <span>Dawson to Tombstone Territorial Park</span>
+        </a>
+        
+        <a href="day15.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">15日目(9/18)</span>
+            <span>Tombstone Territorial Park to Whitehorse</span>
+        </a>
+        
+        <a href="day16.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">16日目(9/19)</span>
+            <span>Whitehorse to Dease Lake</span>
+        </a>
+        
+        <a href="day17.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">17日目(9/20)</span>
+            <span>Dease Lake to Smithers</span>
+        </a>
+        
+        <a href="day18.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">18日目(9/21)</span>
+            <span>Smithers to Prince George</span>
+        </a>
+        
+        <a href="day19.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">19日目(9/22)</span>
+            <span>Prince George</span>
+        </a>
+        
+        <a href="day20.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">20日目(9/23)</span>
+            <span>Prince George to Vancouver</span>
+        </a>
+        
+        <a href="day21.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">21日目(9/24)</span>
+            <span>Vancouver</span>
+        </a>
+        
+        <a href="day22.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">22日目(9/25)</span>
+            <span>Vancouver ⇔ Seattle</span>
+        </a>
+        
+        <a href="day23.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">23日目(9/26)</span>
+            <span>Vancouver</span>
+        </a>
+        
+        <a href="day24.htm" style="display: flex; padding: 15px 20px; background: var(--secondary-bg); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; align-items: center; border: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <span style="font-weight: bold; color: var(--accent); width: 160px; flex-shrink: 0;">24〜25日目(9/27-28)</span>
+            <span>Vancouver to Japan via U.S.A.</span>
+        </a>
+        </div>
+        <div class="navigation-links">
+            
+            <a href="day1.htm" class="btn">次のページ <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <footer><p>© 2026 naoto.online</p></footer>
+</body>
+</html>
