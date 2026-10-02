@@ -20,6 +20,7 @@ GitHub: `petronaoto/naoto-online`（`main` ブランチ）→ Vercel で公開�
 
 ### 2. 2026年ヨーロッパバイクツーリング旅行記は新規作成
 - 背景と旅程は後述「2026 ヨーロッパ旅行記」を参照。
+- 本文は Claude が写真の撮影時刻と計画書から作成した（ユーザー承認済みの進め方）。修正指示があれば `src/data/alps.ts` を直す。写真から確認できない出来事を書き足さない。
 
 ### 3. UI はスクラップ＆ビルド
 - 既存のデザイン（Apple風の白基調カード、各ページにコピペされたインラインCSS）は踏襲しない。
@@ -38,7 +39,7 @@ GitHub: `petronaoto/naoto-online`（`main` ブランチ）→ Vercel で公開�
 
 ### 6. 個人情報・プライバシー
 - 計画書（`C:\dev\touring-plan`）には航空券番号・予約番号・宿の予約ID・カード下4桁などが含まれる。**これらを絶対にサイトへ転記しない**。
-- 友人の実名はユーザーの許可なく掲載しない（サイト上は「友人」「後輩」等で表記）。
+- 友人の実名はユーザーの許可なく掲載しない（サイト上は「大学の部活の後輩」と表記。ブログ等へのリンクは現時点でなし）。
 - 公開する画像からは EXIF（特に GPS 位置情報）を除去する。
 - 車両ナンバープレートが判読できる場合はぼかす等の配慮をする。
 
@@ -67,37 +68,66 @@ GitHub: `petronaoto/naoto-online`（`main` ブランチ）→ Vercel で公開�
   - `ヨーロッパバイクツーリング計画書_改訂版.pptx`（最新。PDFは日本語フォントが抽出できないので pptx から読む）
   - `maps/euro_route_data.json`（OSRM ルート座標）、`maps/euro_*.png`
   - `assets/photos_euro/` は Wikimedia Commons の他者写真（CC BY 等）。**原則サイトには使わない**。使う場合はクレジット必須。
-- 写真・動画: `G:\My Drive\12_写真・動画\2026_ヨーロッパバイクツーリング`
+- 写真・動画: `G:\My Drive\12_写真・動画\2026_ヨーロッパバイクツーリング`（掲載する写真・動画の選定とぼかし範囲は `scripts/alps_media.json`）
   - Pixel 撮影の JPG（約130枚、1枚3〜11MB）と MP4（約18本、最大120MB超）。ファイル名 `PXL_YYYYMMDD_HHMMSSmmm` の時刻は **UTC**（現地 CEST = UTC+2）。
   - **原寸のままリポジトリに入れない**。Web 用に変換（長辺 2400px 程度、AVIF/WebP + JPEG フォールバック、EXIF除去）したものだけをコミットする。
   - 動画は短く切り出し・再圧縮（H.264/MP4 + poster 画像）。GitHub の 100MB/ファイル上限に注意。
 
-## リポジトリの現状（刷新前）
+## 技術スタック・構成（A案「峠 / PASS」で確定 2026-10-03）
 
+- **Astro 7**（静的サイト生成）。Node.js 24 LTS。ビルド: `npm run build`（`astro build` → `scripts/prune-dist.mjs` で未参照の原寸画像を削除）。
+- ホスティング: Vercel（`vercel.json` で framework=astro / 出力 `dist`）。旧URL（`/2008canada/top.htm` 等）は `vercel.json` の `redirects` で新URLへ 301。
+- 作業用クローン: **`C:\dev\naoto-online`**（Google Drive 上の旧クローン `G:\My Drive\10_Homepage\Vercel_naoto-online` では作業しない。`node_modules` が同期されるため）。
+  - Node.js はポータブル版を `C:\dev\tools\node` に置いている。Bash では `export PATH="/c/dev/tools/node:$PATH"`。
+  - Git Bash で `/` 始まりの引数を渡すときは `MSYS_NO_PATHCONV=1` を付ける（パス変換されるため）。
+
+### URL
+| 内容 | 日本語 | 英語 |
+|---|---|---|
+| トップ | `/` | `/en/` |
+| 2026アルプス | `/2026alps/`、`/2026alps/{prologue,day1..day5}/` | `/en/2026alps/...` |
+| 旧旅行記 | `/{trip}/`、`/{trip}/{page}/`（page は旧ファイル名から .htm を除いたもの） | `/en/{trip}/...` |
+
+### ディレクトリ
 ```
-index.html              トップ（旅行記カード4枚）
-template.html           旅行記ページの雛形（{{content_area}} 等のプレースホルダ）
-2008canada/top.htm      カナダ西部の旅（2009年2月）  18ページ / 画像約400
-2009hokkaido/hokkaidotop.htm  北海道ツーリング（2009年8月）  8ページ / 画像約170
-2010indonesia/indonesiatop.htm  インドネシア旅行（2010年3月）  21ページ / 画像約360
-2010canada/2010canadatop.htm  カナダ旅行（2010年9月）  25ページ / 画像約300
-20XXxxx.jpg             トップのカード用サムネイル
+src/
+  i18n.ts                 言語・UI文言（ja/en）・URLヘルパー
+  layouts/Base.astro      共通レイアウト（ヘッダー・言語切替・テーマ切替・フッター）
+  views/                  ページ本体（Home / AlpsTop / AlpsDay / LegacyTop / LegacyPage）。pages/ は ja・en の薄いラッパー
+  components/             ElevationProfile（標高グラフ）, RouteMap（MapLibre）, Photo（AVIF/WebP + 全画面ビューア）, LegacyBlocks ほか
+  data/
+    trips.ts              旅行ごとのメタ情報（タイトル・期間・カバー・指標）
+    alps.ts               2026旅行記の本文（ja/en）。写真キーと累積km
+    alps/                 route.json（OSRM経路）, profile.json（約1kmごとの標高）, places.json（峠・町）
+    legacy/*.json         旧旅行記の日本語原文（scripts/migrate_legacy.py が旧HTMLから生成。手で編集しない）
+    legacy-en/*.json      旧旅行記の英訳（本文ブロックと同じ順序の配列）
+  assets/alps/            2026の写真（scripts/prepare_alps_media.py が生成。EXIFなし・ナンバーぼかし済み）
+  assets/covers/          旧旅行記のカバー画像
+public/media/alps/        2026の動画クリップ（mp4 + poster）
+2008canada/ ほか4フォルダ  旧旅行記の元HTMLと写真（写真はビルド時にここから直接読み込む。削除・移動しない）
+scripts/                  移行・検証・素材生成スクリプト
 ```
 
-- 各旅行記ページは静的 HTML（UTF-8, CRLF）。本文は `<div class="text-block">`、写真は `<div class="image-container"><img src="..."></div>` の並び。目次ページは日ごとのリンク一覧。
-- `*_image0NN.gif` / `*.xml` / `*.thmx` は Word の「Webページとして保存」由来の残骸。gif の中にはスペーサー等が含まれるが、**削除可否は個別に確認してから**。
-- `nuwv.pdf` など旅行記と無関係な未追跡ファイルはコミットしない。
+### デザイン（A案「峠」）
+- 色: 雪 `--snow` / インク `--ink` / 岩 `--rock` / イタリアの峠標識の茶 `--sign`。ライト・ダーク両対応（`src/styles/global.css` のトークンのみで色を指定する）。
+- 書体: 数字・欧文は Overpass（道路標識由来）、和文は Zen Kaku Gothic New（どちらも @fontsource で自己ホスト）。
+- 2026旅行記: 標高プロファイル（友人と＝実線/塗り、単独＝破線）、各日ページのスクロール連動高度計、距離標（marker）。
+- 旧旅行記: 旅ごとの指標（距離・気温・緯度など）で語る。本文は原文の改行を保持（`white-space: pre-line`）。
 
-## 技術スタック・構成
+### 検証コマンド（変更後は必ず実行）
+```bash
+python scripts/verify_legacy.py --dist      # 旧旅行記: 旧HTML ⇔ JSON ⇔ ビルド結果 の本文・画像の完全一致
+python scripts/check_translations.py        # 英訳の段落数が原文と一致しているか
+node scripts/shot.mjs <outdir> 390x844 / /2026alps/day3/   # 表示確認（要 npm run preview）。@dark でダーク
+```
 
-> 刷新案の承認後にここを確定・更新する。
-
-- ホスティング: Vercel（GitHub `main` への push で自動デプロイ）。
-- 現状はビルド工程なしの純静的サイト。
+### 旧サイトの残存ファイル
+- ルートの `index.html` / `template.html` / `20XXxxx.jpg` は旧UI。ビルドには使われない。削除はユーザー承認後。
+- 旧目次ページで以前のモダン化の際に表示から外れた素材（2008カナダのオーロラ写真・ルート地図・メンバー紹介GIF、北海道の旅行者紹介GIF、インドネシアの行程図・メンバー写真）はフォルダ内に残っている。表示するかはユーザー判断。
 
 ## 作業上の注意
 
-- このリポジトリは **Google Drive 同期フォルダ上** にあり、ファイルI/Oが遅い。大量の画像処理や `du`/`find` は時間がかかるので、バックグラウンド実行やスクラッチ領域での処理を活用する。
+- 写真の元フォルダは **Google Drive 同期フォルダ上** にあり、ファイルI/Oが遅い（未ダウンロードの大きな動画は途中までしか読めないことがある）。大量の画像処理はバックグラウンド実行やスクラッチ領域での処理を活用する。
 - 画像の一括変換はスクリプト化し、元画像フォルダ（Google Drive の写真フォルダ）は読み取り専用として扱う（**元写真を変更・削除しない**）。
 - UI の確認はブラウザプレビューで **スマホ幅（375px）とデスクトップ幅の両方**、ライト／ダーク両方で行う。
 - 既存の URL（例: `/2008canada/top.htm`）は外部からリンクされている可能性があるため、構成を変える場合はリダイレクト（`vercel.json`）を用意する。

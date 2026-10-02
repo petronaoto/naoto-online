@@ -1,0 +1,265 @@
+{
+ "photos": {
+  "d0-doha": {
+   "file": "PXL_20260927_041221341.MP.jpg"
+  },
+  "d0-stpaul": {
+   "file": "PXL_20260927_161421170.jpg"
+  },
+  "d0-wiesn-tower": {
+   "file": "PXL_20260927_175814933.MP.jpg"
+  },
+  "d1-gs": {
+   "file": "PXL_20260928_092110531.MP.jpg",
+   "blur": [
+    [
+     0.61,
+     0.56,
+     0.69,
+     0.72
+    ],
+    [
+     0.82,
+     0.43,
+     0.89,
+     0.53
+    ]
+   ]
+  },
+  "d1-esso": {
+   "file": "PXL_20260928_105625669.jpg"
+  },
+  "d1-two-bikes": {
+   "file": "PXL_20260928_121245527.jpg",
+   "blur": [
+    [
+     0.4,
+     0.49,
+     0.5,
+     0.6
+    ]
+   ]
+  },
+  "d1-maut": {
+   "file": "PXL_20260928_122130088.MP.jpg",
+   "blur": [
+    [
+     0.36,
+     0.71,
+     0.44,
+     0.83
+    ]
+   ]
+  },
+  "d1-karwendel": {
+   "file": "PXL_20260928_122930450.jpg",
+   "blur": [
+    [
+     0.31,
+     0.65,
+     0.36,
+     0.72
+    ]
+   ]
+  },
+  "d1-viewpoint": {
+   "file": "PXL_20260928_125415438.jpg",
+   "blur": [
+    [
+     0.82,
+     0.7,
+     0.89,
+     0.8
+    ]
+   ]
+  },
+  "d1-inn-valley": {
+   "file": "PXL_20260928_125541198.jpg"
+  },
+  "d1-road": {
+   "file": "PXL_20260928_143425758.jpg"
+  },
+  "d1-italia": {
+   "file": "PXL_20260928_151101026.MP.jpg"
+  },
+  "d1-vipiteno": {
+   "file": "PXL_20260928_155429442.jpg"
+  },
+  "d2-ortisei": {
+   "file": "PXL_20260929_105526434.MP.jpg"
+  },
+  "d2-village": {
+   "file": "PXL_20260929_105731179.jpg",
+   "blur": [
+    [
+     0.43,
+     0.57,
+     0.49,
+     0.65
+    ]
+   ]
+  },
+  "d2-sassolungo": {
+   "file": "PXL_20260929_111253483.MP.jpg"
+  },
+  "d2-sassolungo-gs": {
+   "file": "PXL_20260929_111333348.jpg"
+  },
+  "d2-cir": {
+   "file": "PXL_20260929_114009453.jpg"
+  },
+  "d2-coffee": {
+   "file": "PXL_20260929_115434068.jpg"
+  },
+  "d2-sassongher": {
+   "file": "PXL_20260929_124753936.MP.jpg"
+  },
+  "d2-gs-pass": {
+   "file": "PXL_20260929_131553382.jpg"
+  },
+  "d2-valley": {
+   "file": "PXL_20260929_132645301.jpg"
+  },
+  "d2-sella": {
+   "file": "PXL_20260929_135357018.jpg"
+  },
+  "d2-gs-close": {
+   "file": "PXL_20260929_150418263.MP.jpg"
+  },
+  "d2-dinner": {
+   "file": "PXL_20260929_175432948.jpg"
+  },
+  "d3-weisser-knott": {
+   "file": "PXL_20260930_105951662.jpg",
+   "blur": [
+    [
+     0.36,
+     0.73,
+     0.42,
+     0.82
+    ],
+    [
+     0.76,
+     0.65,
+     0.84,
+     0.72
+    ],
+    [
+     0.5,
+     0.65,
+     0.56,
+     0.73
+    ]
+   ]
+  },
+  "d3-trafoi": {
+   "file": "PXL_20260930_111156457.jpg"
+  },
+  "d3-clouds": {
+   "file": "PXL_20260930_130948755.MP.jpg"
+  },
+  "d3-tower": {
+   "file": "PXL_20260930_130953413.MP.jpg"
+  },
+  "d3-statue": {
+   "file": "PXL_20260930_130957200.MP.jpg"
+  },
+  "d3-switchbacks": {
+   "file": "PXL_20260930_132126114.MP.jpg"
+  },
+  "d3-bormio-bikes": {
+   "file": "PXL_20260930_141725764.jpg",
+   "blur": [
+    [
+     0.32,
+     0.68,
+     0.385,
+     0.75
+    ]
+   ]
+  },
+  "d3-foscagno": {
+   "file": "PXL_20260930_151435445.MP.jpg",
+   "blur": [
+    [
+     0.12,
+     0.44,
+     0.22,
+     0.53
+    ]
+   ]
+  },
+  "d3-foscagno2": {
+   "file": "PXL_20260930_151439549.MP.jpg"
+  },
+  "d3-livigno": {
+   "file": "PXL_20260930_154937246.MP.jpg"
+  },
+  "d4-coop": {
+   "file": "PXL_20261001_083816346.MP.jpg",
+   "blur": [
+    [
+     0.51,
+     0.77,
+     0.565,
+     0.87
+    ]
+   ]
+  },
+  "d4-lake": {
+   "file": "PXL_20261001_091115439.MP.jpg"
+  },
+  "d4-queue": {
+   "file": "PXL_20261001_110658303.jpg"
+  },
+  "d4-fernpass": {
+   "file": "PXL_20261001_132622138.MP.jpg"
+  },
+  "d4-fuessen-lake": {
+   "file": "PXL_20261001_155038592.MP.jpg"
+  },
+  "d4-cows": {
+   "file": "PXL_20261001_160747960.jpg"
+  },
+  "d5-mushrooms": {
+   "file": "PXL_20261002_095514884.jpg"
+  },
+  "d5-neuschwanstein": {
+   "file": "PXL_20261002_100848877.MP.jpg",
+   "crop": [
+    0,
+    0,
+    0.84,
+    1
+   ]
+  },
+  "d5-last-inn": {
+   "file": "PXL_20261002_130413777.jpg",
+   "blur": [
+    [
+     0.79,
+     0.69,
+     0.89,
+     0.775
+    ]
+   ]
+  }
+ },
+ "videos": {
+  "v0-wiesn-tower": {
+   "file": "PXL_20260927_175816070.TS.mp4",
+   "start": 0,
+   "dur": 5
+  },
+  "v3-descent": {
+   "file": "PXL_20260930_143003396.TS.mp4",
+   "start": 38,
+   "dur": 14
+  },
+  "v3-foscagno": {
+   "file": "PXL_20260930_150650348.TS.mp4",
+   "start": 18,
+   "dur": 12
+  }
+ }
+}

@@ -1,0 +1,137 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import LegacyBlocks from '../components/LegacyBlocks.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { tripBySlug } from '../data/trips';
+import { legacyTrip, legacyEn, tocItems } from '../lib/legacy';
+import { href, t, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+const { lang, slug } = Astro.props;
+const trip = tripBySlug(slug);
+const data = legacyTrip(slug);
+const en = legacyEn(slug);
+const translated = lang === 'ja' || !!en.top?.texts;
+const first = tocItems(slug, lang)[0];
+---
+
+<Base lang={lang} title={t(trip.title, lang)} description={t(trip.summary, lang)}>
+  <article>
+    <header class="head wrap">
+      <div class="cover">
+        <Picture src={trip.cover} alt={t(trip.coverAlt, lang)} formats={['avif']} fallbackFormat="webp" widths={[trip.cover.width]} loading="eager" />
+      </div>
+      <div class="titles">
+        <p class="eyebrow num">{trip.year} · {t(trip.period, lang)}</p>
+        <h1>{t(trip.title, lang)}</h1>
+        <p class="sub">{t(trip.subtitle, lang)}</p>
+        <dl class="metrics">
+          {
+            trip.metrics.map((m) => (
+              <div>
+                <dd class="num">
+                  {m.value}
+                  {m.unit && <small>{t(m.unit, lang)}</small>}
+                </dd>
+                <dt>{t(m.label, lang)}</dt>
+              </div>
+            ))
+          }
+        </dl>
+        <a class="start" href={href(lang, first.href)}>{t(ui.readJournal, lang)} →</a>
+      </div>
+    </header>
+
+    {lang === 'en' && <p class="prose note">{translated ? t(ui.translatedNote, lang) : 'This journal was written in Japanese. An English translation is being prepared.'}</p>}
+
+    <div class="body">
+      <LegacyBlocks trip={slug} slug="top" blocks={data.top.blocks} lang={lang} />
+    </div>
+  </article>
+  <Lightbox />
+</Base>
+
+<style>
+  .head {
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(20px, 4vw, 48px);
+    align-items: end;
+  }
+  .cover :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+  .titles {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+  }
+  .sub {
+    font-weight: 700;
+    color: var(--ink-2);
+  }
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    margin: 10px 0 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .metrics div {
+    display: grid;
+  }
+  .metrics dd {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+  .metrics small {
+    font-size: 0.5em;
+    margin-left: 3px;
+  }
+  .metrics dt {
+    font-size: 0.72rem;
+    color: var(--rock);
+  }
+  .start {
+    background: var(--ink);
+    color: var(--snow);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 9px 18px 7px;
+    border-radius: 999px;
+    margin-top: 6px;
+  }
+  @media (max-width: 760px) {
+    .head {
+      grid-template-columns: 1fr;
+    }
+  }
+  .note {
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: var(--rock);
+    font-style: italic;
+  }
+  .body {
+    padding-top: 48px;
+    display: grid;
+    gap: 24px;
+  }
+</style>

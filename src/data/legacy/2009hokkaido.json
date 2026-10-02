@@ -1,0 +1,1355 @@
+{
+ "trip": "2009hokkaido",
+ "top": {
+  "slug": "hokkaidotop",
+  "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+  "h1": "北海道ツーリングの記録",
+  "blocks": [
+   {
+    "type": "heading",
+    "ja": "全行程"
+   },
+   {
+    "type": "text",
+    "ja": "東名名古屋IC→(東名高速)→(中央自動車道)→(長野自動車道)→(上信越自動車道)→(北陸自動車道)→(磐越自動車道)→(東北自動車道)→青森東IC→恐山→函館→羊蹄山→小樽→(札樽自動車道)→(道央自動車道)→旭川鷹栖IC→層雲峡→足寄→釧路→標津(⇔野付半島)→羅臼→ウトロ→網走→紋別→宗谷岬→ノシャップ岬→サロベツ原野→留萌→小樽→(新日本海フェリー)→新潟→名古屋"
+   },
+   {
+    "type": "image",
+    "src": "hokkaidotop_image002.jpg",
+    "alt": "ルートマップ"
+   },
+   {
+    "type": "heading",
+    "ja": "旅行者紹介(単独行)"
+   },
+   {
+    "type": "image",
+    "src": "hokkaidotop_image004.gif",
+    "alt": "旅行者写真"
+   },
+   {
+    "type": "heading",
+    "ja": "目次"
+   },
+   {
+    "type": "toc",
+    "items": [
+     {
+      "href": "hokkaido1.htm",
+      "label": "",
+      "title": "出発～大間(青森)"
+     },
+     {
+      "href": "hokkaido2.htm",
+      "label": "",
+      "title": "大間(青森)～函館"
+     },
+     {
+      "href": "hokkaido3.htm",
+      "label": "",
+      "title": "函館～層雲峡"
+     },
+     {
+      "href": "hokkaido4.htm",
+      "label": "",
+      "title": "層雲峡～釧路"
+     },
+     {
+      "href": "hokkaido5.htm",
+      "label": "",
+      "title": "釧路～知床"
+     },
+     {
+      "href": "hokkaido6.htm",
+      "label": "",
+      "title": "知床～稚内"
+     },
+     {
+      "href": "hokkaido7.htm",
+      "label": "",
+      "title": "稚内～小樽"
+     }
+    ]
+   }
+  ]
+ },
+ "pages": [
+  {
+   "slug": "hokkaido1",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "出発～大間(青森)"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "名古屋ICから高速道路を走り続けた。途中、妙高の辺りで雨に見舞われる。高速で雨に降られると、次のSAPAまで雨に打たれながら走り続ける必要があるので辛い。北陸自動車道米山SAから海を望む。佐渡島が見えるそうだがそれらしいものは確認できなかった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "磐越自動車道阿賀野SAで小休止。少し雨が降ったようだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "東北で有名な磐梯山を望む。すっかりスキーリゾートに開発されてしまっている。東北まで来ると信州のように山脈が連なっているという雰囲気ではなく、比較的なだらかな山が多い。見通しもよく、人家も少ないのでどことなくのんびりとした雰囲気が味わえる。時間がゆっくりと流れているように感じた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "国見SAで食べた牛タン丼。以前、蔵王にスキーに訪れた際にも食べたがやはりおいしかった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "津軽SAから津軽富士、岩木山を望む。雨続きだっただけに今後は晴れてほしい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "SAにて。夜はずっと雨が降っていたが、浸水することは無かった。しかし、衣服がずぶ濡れになっていたのでほとんど眠れなかった。同じことを考える仲間もいた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "青森の街から霊山である恐山を望む。ここから山頂付近を目指す。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "恐山の山頂付近。いたるところからイオウが噴出し、腐卵臭をただよわせていた。川も黄色くなっている。この辺りはイタコが有名だそうで、イタコの看板が出ている古い家屋が立ち並んでいた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "山頂付近から大間へ抜けようと思ったが途中からダートに。舗装された道が続いているものだと思ったが甘かった。ホーネットは泥だらけになってしまった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "本州最北端へ到達。沖にはうっすら北海道も見えている。名古屋を出発してから1400km程走った。いよいよ北海道に上陸だ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido1_image014.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido2",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "大間(青森)～函館"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "大間の食堂で食べたホッケ定食。本当は一本釣りで有名な大間のマグロ丼を食べる予定であった。実際、どの食堂の前にも大間のマグロと書かれた旗が立っていた。しかし、値段はどのお店も2500円前後。これは高い・・・。今後のことも考えて断念した。ホッケ定食は800円程度。ボリュームは満点で、味も格別。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "フェリーの中にバイクを入庫。北海道上陸を前に、胸が高鳴る。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "フェリーは函館港に向けて出港。距離はだいたい40km程である。この下というわけではないが、青函トンネルも津軽海峡の下を通っている。この海峡に海底トンネルを掘るなど信じがたい！！"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "函館の夜景で有名な函館山。初めは島かと思っていたが、この山の裏にはもう函館の市街が広がっていた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "北海道上陸！！道幅がとても広い。冬場の雪のためだそうだが、夏はみんな2車線として走っているようだ。少し困惑。真ん中を走っていたのでは少し迷惑だろう。このあと、青森で連絡を入れておいた友人コージの元へ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "夜はコージの車で函館観光に連れて行ってもらった。写真は居酒屋で頼んだホタテ。バターだけで焼くシンプルなものだが、うまい！"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "函館山からの夜景。露出を15秒にしたら、ここまでの写真が撮れた。あまりの美しさに時間も忘れて見とれてしまった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "コージと夜景。これほどの美しい夜景を前にし、僕とコージの間には不思議な緊張感が漂っていた気がする。お互いはにかんでいた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "夜景の他に、面白い景色に遭遇した。斜めになってしまったが、これは函館山から本州方面を見たものである。一番奥にイカ釣り漁船の灯りと内地の夜景がある。そして空には光の筋が。オーロラか！？とも思ったがまさかこんなところで見れるはずもない。どうやらイカ釣り漁船の灯りによるいざり火（？）と呼ばれるものらしい。薄い雲によってチンダル現象が起きたのか、とても神秘的な光景であった。カメラでは写らないと思ったが、露出をMAXである60秒にしてみたら肉眼同様に写すことができた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "翌朝は朝市へ。函館名物、活きイカを注文。市場にはいたるところにこの活きイカを売っている店があった。このように水槽にイカがたくさん泳いでおり、注文すると店員さんが捕まえてイカソーメンにしてくれるのだ。切り刻まれているのに微妙に動いており、口の中に入れると吸盤が舌にくっついてくる。鮮度は抜群。ただしお値段は1500円と高め。一緒に注文した海鮮丼も文句なし！北海道の魅力は、豊かな海の幸がもたらすグルメであると実感した。海鮮丼にはカニの味噌汁がついてきたのだが、これがカニの出汁が効いておりうっとりするような上品な後味。そしておかわり無料！！"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "函館の名物だと連れて行ってもらったハンバーガー屋。やたらと派手な内装で、真夏なのにクリスマスをアピールしていた。市民は「ラッピ」というそうだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image017.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "五稜郭にて二人で記念撮影。二人とも少し照れている。残念ながら、近くのタワーにのぼらなければ星型には見えないようだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido2_image018.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido3",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "函館～層雲峡"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "世話になったコージに別れを告げて函館を出発。少し雲行きがよくない。そして寒い。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "函館市外から5号線をひた走る。内浦湾に出る前に駒ケ岳が見えてきた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "内浦湾から振り返って駒ケ岳を望む。独立した火山のようだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "さらに、はるか遠方に羊蹄山を発見。形は富士山そのものである。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "5号線を走り続け、羊蹄山の麓まで来た。形は富士山だが、山頂近くまで樹林で覆われているところは異なっている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "羊蹄山の反対側にはニセコの山が。こちらはすっかりスキーリゾートに開拓されてしまっている。冬にもう一度きて滑ってみたい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "札幌周辺は高速を使ってパス。岩見沢のあたりから田園を望む。このあたりは平野が広がって田園風景が中心だ。市街地も転々としており、あまり大自然という雰囲気は感じられないが、それでもさえぎるものがあまり無いので北海道の広さは十分に感じることができた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "旭川を過ぎ、振り返ってみると日が沈もうとしていた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "夕日に染まる田園風景。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "夕焼けがきれいだった。明日の晴れを予感させる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "大雪山系を望む。ほんのり夕日に染まっている。山頂付近には氷河をまとっている。写真一番右の高峰がトムラウシだろうか。2009年夏、この辺り一帯で遭難者が相次いだ。懐も深く、魅力に満ちた山域ではあるが、それだけ自然も厳しいということなのだろう。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "層雲峡手前から大雪を望む。見えているのは黒岳の一部だろうか。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido3_image017.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido4",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "層雲峡～釧路"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "朝の層雲峡。上高地のような感じで、ホテルが立ち並んでいる。昨日の晩はとあるホテルの無料の足湯に浸かって疲れを癒した。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "層雲峡は谷の両側が切り立った崖になっている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "層雲峡にある流星の滝。この上流には銀河の滝もあるというが、そちらには行かなかった。結構有名な滝らしいが、あまり魅力は感じなかった。銀河の滝はすごいのかもしれない。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "層雲峡を過ぎて大雪湖へ。あろうことか、雨がふってきた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "三国峠から眼下に広がる樹海を望む。どこからヒグマが出てきてもおかしくないような道が続いている。雨は強くなる一方で、すこぶる寒い。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "糠平へ続く道。北海道らしい直線道路だ。路面は雨でびしょ濡れ。早くどこかに避難したいが、町が無い。本州ならば、道路わきにたまに猫の死骸が転がっていたりするが、この道ではシカが死んでいた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "糠平に到着。雨でずぶ濡れになってしまったので、ある温泉宿に飛び込む。ここで入った温泉の露天風呂がとても良かった。自然の中に手作りで作ったというような感じのお風呂で、店主も自慢のようだった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "足寄でもしばらく雨宿りし、再出発。釧路へ向かう途中、晴れ間がのぞく。空を見上げると虹がかかっていた。希望が膨らむ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "内陸からようやく太平洋側へ出た白糠の町。路面はまだぬれているが、ところどころ晴れ間がのぞく。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "海岸に出て撮ったお気に入りの一枚。すごく、うらやましかった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "釧路湿原をバックに撮った夕焼け。明日こそ晴れますように。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image017.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image018.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "見渡す限りの釧路湿原。雄大。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image019.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "新釧路川のほとりで寝ることに。怖かった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido4_image020.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido5",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "釧路～知床"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "朝起きると快晴のぬけるような青い空が広がっていた。今日こそ絶好のツーリング日和だ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "釧路を過ぎ、ミルクロードと呼ばれる国道わきに広がる牧場。遠くには昨日通過した大雪山系も見える。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "牧場に咲いていた花々。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ポツンとホーネット。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "牧場がどこまでも続く。途中、牛が群れていた。牧場なので牛がいるのは当たり前だが、牛密度が低すぎる。これでは飼い主は大変なのではないかと思った。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "牧草地帯を抜け、標津町へ。オホーツク海の向こうには、北方領土の国後島が見える。泳いで渡るというわけにはいかないだろうが、大間から北海道を見たときくらいの距離に感じる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "標津町から見た知床半島。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "標津町から野付半島に向かう。日本最大の砂州で、この直線道路の両側には海が広がっている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image017.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "野付半島の原生花園。昔はトドマツという松が生い茂っていたそうだが、海面の上昇のためか、現在では立ち枯れてしまっている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image018.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "野付半島からだと国後島は16kmの距離しかないようだ。大間～函館間の半分以下の距離である。双眼鏡で国後島の海岸を見てみると、建物も見えた。ロシア人も5000人ほど居住しているというから、北方問題の解決は現実味が感じられなかった。歯舞諸島では、国境警備隊のみが住んでいるとのことだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image019.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "野付半島にある北方領土センターにて。トリの剥製。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image020.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "センター内に掲載されていたポスター。動物のひき逃げ事故が絶えないという。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image021.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "海岸線を羅臼に向けてひた走る。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image022.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "羅臼の道の駅で食べた秋刀魚焼き定食。旬には少し早いかもしれないが、とても美味。値段もこれだけのボリュームで800円程度だったと思う。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image023.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "羅臼の海岸はカモメに埋め尽くされていた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image024.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "羅臼町から見た羅臼岳。迫力のある山だ。今から羅臼岳の基部である知床峠を越え、知床半島を横断する。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image025.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image026.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "知床峠付近でシカが出没！あわててバイクをとめて近寄ってみる。が、逃げない。人間に慣れているのだろうか。警戒心の強いはずのシカが逃げないのは不思議だった。2枚ともズームではない。1mくらいの距離にまで近づくことができた。かわいい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image027.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "知床峠から見た羅臼岳。雄大な山だ。登ってみたくなってしまう。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image028.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "同じく、峠から見た羅臼側の樹海。遠方に望むのは国後島。択捉島も少しばかり見えていた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image029.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "もう一度、羅臼岳。これより先端部は、ヒグマの聖地でもある。残念ながら今回の旅では一度もお目にかかることはできなかった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido5_image030.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido6",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "知床～稚内"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "知床峠からウトロ側に走っていく。再びオホーツク海に出た。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ウトロ側の海岸線。ここら一帯はもう世界遺産の指定区域である。冬には流氷が押し寄せるという。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ウトロにあるオロンコ岩という巨岩。左の方についている道からてっぺんまで登ることができる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "オロンコ岩のてっぺんまで登ってみた。最近の運動不足がたたってか、息が切れてしまった。この写真、何か生き物のように見えないだろうか？ゴジラ岩という名称がついている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "知床先端部までは見ることはできない。先端は、遊覧船で見に行くか、または歩いて向かうかだ。歩きでいく場合、クマ対策は必須。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "オロンコ岩のてっぺんでトリカブトが自生していた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ゴジラが出てくるのかー！？と思ったが何も出ては来なかった・・・。しかし何かがいそうだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "オシンコシンの滝。あまり大きくはない。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "斜里町付近の道の駅。鉄道の駅も併設してある。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "オホーツクの夕焼け。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "サロマ湖の道の駅から、展望台を目指して歩く。40分ほどの登山。しんどかった。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "努力の甲斐あって展望台に到着。絶景が広がる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image017.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "紋別周辺も牧草地が広がる。一人旅だったので寂しい写真しか撮れない。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image018.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "オホーツクの海はどこまで行っても青々としていた。冬は一面流氷に覆われるのだろう。見てみたい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image019.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "道の駅雄武で買ったイカ天とカニ天。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image020.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "北海道では一足早くコスモスの季節。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image021.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image022.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ウスタイベ千畳岩と呼ばれる磯。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image023.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "どこまでも草原が続いている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image024.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image025.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image026.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image027.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image028.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image029.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "美しいベニヤ原生花園。北海道では北部の海岸はたいてい砂浜海岸の陸側に原生花園が広がっているようだ。花の開花ピークはもう過ぎているようで、少し寂しげな雰囲気が漂っていた。そして途中、クマが出没したとの情報を知らせる看板を発見。もしこんなところで突然出くわしたらもう終わりだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image030.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "かねてから計画し、憧れだったエサヌカ線。交通量は皆無に等しく、まるで空に道路が溶けていくようだった。両側に広がっているのは原生花園や牧草地である。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image031.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "思わずこういうこともやってみたくなる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image032.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "宗谷丘陵に広がるウィンドファーム。全部で54機もあるというからすごい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image033.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "宗谷岬の灯台だろうか。丘陵地が美しい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image034.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image035.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ついに、日本最北端の地に至れり。北緯45度。ずいぶん北のほうまで来たと思うのだが、まだまだ北には樺太など広大な北極圏が広がっているのだろう。僕はなぜか、北の大地にものすごく惹かれてしまう。どれだけ寒くても、人は普通に生活している。人間のすごさを感じさせる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image036.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "宗谷岬から北方を望む。かすかに樺太の陸地が確認できた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image037.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "昔宗谷海峡でアメリカ軍と日本軍が海戦を繰り広げたそうだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image038.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image039.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image040.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "宗谷岬には流氷記念館があり、ここではマイナス12℃の冷凍展示室があった。すべて剥製だ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image041.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "少し丘をあがってみる。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image042.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image043.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "最北端で食べたのはラーメン。ドでかいホタテが入っていた。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido6_image044.gif",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "slug": "hokkaido7",
+   "htmlTitle": "北海道ツーリングの記録 | naoto.online",
+   "h1": "北海道ツーリングの記録",
+   "blocks": [
+    {
+     "type": "text",
+     "ja": "稚内～小樽"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image002.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image003.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "ノシャップ岬へも足を伸ばしてみた。こちらは少し人が少ない。沖には憧れの利尻富士が。この山の頂に上れば360度の眼下に海が見下ろせるはずだ。火山が丸ごと島になっている。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image004.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "広大なサロベツ原野と利尻島。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image005.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image006.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image007.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image008.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image009.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "夕日に暮れなずむサロベツ原野と利尻島。この景色を語るのに、言葉は要らない。知床峠、ベニヤ原生花園とならんで感動の大きかった場所のひとつ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image010.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "原野にならぶ風力発電風車群。遠近感がいい感じだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image011.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "留萌などは豪雨のため写真撮れず。なんとか小樽にたどり着き、温泉へ直行♪"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image012.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "小樽の街はレトロな倉庫が立ち並ぶ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image013.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image014.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image015.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image016.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "新日本海フェリーに乗船。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image017.jpg",
+     "alt": ""
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image018.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "小樽港を出港。北海道に別れを告げる。名残惜しいが、名古屋がすごく恋しい。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image019.jpg",
+     "alt": ""
+    },
+    {
+     "type": "text",
+     "ja": "カモメがついてくる。食べ物を狙っているようだ。目つきがすごく嫌らしかった。手に持っているパンでも持っていってしまうのだ。"
+    },
+    {
+     "type": "image",
+     "src": "hokkaido7_image020.gif",
+     "alt": ""
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,93 @@
+---
+/**
+ * 写真1枚。AVIF/WebP の複数サイズを生成し、タップで全画面ビューア（PhotoSwipe）を開く。
+ * GIF は変換せずそのまま表示する（旧旅行記の図版用）。
+ */
+import type { ImageMetadata } from 'astro';
+import { Picture, getImage } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  meta?: string;
+  sizes?: string;
+  widths?: number[];
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  /** 旧旅行記の検証用に元ファイル名を出力する */
+  legacySrc?: string;
+  /** 高度計用 */
+  km?: number;
+}
+const { src, alt, caption, meta, sizes = '(min-width: 1000px) 960px, 100vw', loading = 'lazy', legacySrc, km } = Astro.props;
+const isGif = src.format === 'gif';
+const maxW = src.width;
+const widths = (Astro.props.widths ?? [480, 960, 1440, 2000]).filter((w) => w < maxW).concat(maxW > 2000 ? [] : [maxW]);
+const big = isGif ? null : await getImage({ src, width: Math.min(2000, maxW), format: 'webp', quality: 78 });
+const zoomW = big ? Number(big.attributes.width ?? maxW) : maxW;
+const zoomH = Math.round((zoomW / src.width) * src.height);
+---
+
+<figure class:list={['photo', Astro.props.class]} data-km={km} data-legacy-src={legacySrc}>
+  {
+    isGif ? (
+      <img src={src.src} width={src.width} height={src.height} alt={alt} loading={loading} decoding="async" />
+    ) : (
+      <a class="zoom" href={big!.src} data-pswp-width={zoomW} data-pswp-height={zoomH} data-caption={caption ?? alt}>
+        <Picture
+          src={src}
+          alt={alt}
+          formats={['avif']} fallbackFormat="webp"
+          widths={widths.length ? widths : [maxW]}
+          sizes={sizes}
+          loading={loading}
+          decoding="async"
+          quality={78}
+        />
+      </a>
+    )
+  }
+  {
+    (caption || meta) && (
+      <figcaption>
+        {caption && <span class="cap">{caption}</span>}
+        {meta && <span class="meta num">{meta}</span>}
+      </figcaption>
+    )
+  }
+</figure>
+
+<style>
+  .photo {
+    margin-block: 0;
+    margin-inline: auto;
+    display: grid;
+    gap: 8px;
+  }
+  .photo :global(img) {
+    width: 100%;
+    height: auto;
+    background: var(--line);
+  }
+  .zoom {
+    display: block;
+    cursor: zoom-in;
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 16px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--rock);
+    padding-inline: var(--cap-pad, 0);
+  }
+  .meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+</style>

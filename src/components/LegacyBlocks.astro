@@ -1,0 +1,170 @@
+---
+/**
+ * 旧旅行記の本文ブロックを描画する。
+ * 本文は原文の文字列をそのまま出力し、検証用に data-legacy-text / data-legacy-src を付ける
+ * （scripts/verify_legacy.py --dist が旧HTMLと照合する）。
+ */
+import Photo from './Photo.astro';
+import { legacyImage } from '../lib/images';
+import { blockText, tocItems, legacyEn, type LegacyBlock } from '../lib/legacy';
+import { href, type Lang } from '../i18n';
+
+interface Props {
+  trip: string;
+  slug: string;
+  blocks: LegacyBlock[];
+  lang: Lang;
+  /** 1つ目のテキストを見出し扱いにしない等の調整用 */
+  skipToc?: boolean;
+}
+const { trip, slug, blocks, lang, skipToc = false } = Astro.props;
+let ti = -1;
+let firstImg = true;
+const enMembers = legacyEn(trip)[slug]?.members;
+---
+
+{
+  blocks.map((b) => {
+    if (b.type === 'heading') {
+      ti++;
+      const { html, translated } = blockText(trip, slug, ti, b.ja, lang);
+      return <h2 class="lg-h prose" data-legacy-text lang={translated ? undefined : 'ja'} set:html={lang === 'ja' ? b.ja : html} />;
+    }
+    if (b.type === 'text') {
+      ti++;
+      const { html, translated } = blockText(trip, slug, ti, b.ja, lang);
+      // 日本語ページは原文のまま（旧ページへのリンクだけ新URLへ）
+      const ja = blockText(trip, slug, ti, b.ja, 'ja').html;
+      return <p class="lg-t prose" data-legacy-text lang={translated ? undefined : 'ja'} set:html={lang === 'ja' ? ja : html} />;
+    }
+    if (b.type === 'image') {
+      const img = legacyImage(trip, b.src);
+      const eager = firstImg;
+      firstImg = false;
+      return (
+        <Photo
+          src={img}
+          alt={b.alt}
+          legacySrc={b.src}
+          class="lg-img"
+          widths={[img.width]}
+          sizes={`(min-width: ${img.width + 40}px) ${img.width}px, 100vw`}
+          loading={eager ? 'eager' : 'lazy'}
+        />
+      );
+    }
+    if (b.type === 'members') {
+      return (
+        <ul class="lg-members prose">
+          {b.items.map((m, i) => {
+            const img = legacyImage(trip, m.src);
+            return (
+              <li data-legacy-src={m.src}>
+                <img src={img.src} width={img.width} height={img.height} alt={m.alt} loading="lazy" />
+                <span>{lang === 'en' && enMembers?.[i] ? enMembers[i] : m.name}</span>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
+    if (b.type === 'toc' && !skipToc) {
+      return (
+        <ol class="lg-toc prose">
+          {tocItems(trip, lang).map((it) => (
+            <li>
+              <a href={href(lang, it.href)}>
+                <span class="l num">{it.label || '›'}</span>
+                <span class="tt" lang={it.translated ? undefined : 'ja'}>
+                  {it.title}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      );
+    }
+    return null;
+  })
+}
+
+<style>
+  .lg-h {
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding-top: 12px;
+    border-top: 2px solid var(--ink);
+  }
+  .lg-t {
+    white-space: pre-line;
+    line-height: 2;
+  }
+  :global(:lang(en)) .lg-t {
+    line-height: 1.75;
+  }
+  .lg-t :global(a) {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  :global(.lg-img) {
+    width: fit-content;
+    max-width: min(100%, 860px);
+    margin-inline: auto;
+  }
+  :global(.lg-img img) {
+    border-radius: 2px;
+  }
+  .lg-members {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .lg-members li {
+    display: grid;
+    gap: 6px;
+    justify-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .lg-members img {
+    width: auto;
+    max-height: 200px;
+  }
+  .lg-toc {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
+  .lg-toc a {
+    display: grid;
+    grid-template-columns: 9.5em 1fr;
+    gap: 16px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    line-height: 1.6;
+  }
+  :global(:lang(en)) .lg-toc a {
+    grid-template-columns: 7em 1fr;
+  }
+  .lg-toc .l {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+  .lg-toc a:hover .tt {
+    color: var(--accent);
+  }
+  @media (max-width: 520px) {
+    .lg-toc a {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+</style>

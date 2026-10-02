@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+import { ui, t, href, switchPath, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  /** ヒーロー画像の上にヘッダーを重ねる（白文字） */
+  overlayHeader?: boolean;
+  ogImage?: string;
+}
+const { lang, title, description = '', overlayHeader = false, ogImage } = Astro.props;
+const path = Astro.url.pathname;
+const other: Lang = lang === 'ja' ? 'en' : 'ja';
+const fullTitle = title === 'naoto.online' ? title : `${title} | naoto.online`;
+const canonical = new URL(path, Astro.site);
+const altJa = new URL(switchPath(path, 'ja'), Astro.site);
+const altEn = new URL(switchPath(path, 'en'), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ja" href={altJa} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altJa} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#14181b" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site)} />}
+    <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      // 保存済みのテーマを描画前に反映（ちらつき防止）
+      try {
+        const th = localStorage.getItem('theme');
+        if (th === 'light' || th === 'dark') document.documentElement.dataset.theme = th;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t(ui.skip, lang)}</a>
+    <header class:list={['site', { overlay: overlayHeader }]}>
+      <div class="bar">
+        <a class="logo num" href={href(lang, '/')}>naoto.online</a>
+        <nav aria-label={lang === 'ja' ? 'メイン' : 'Main'}>
+          <a href={href(lang, '/#journeys')}>{t(ui.journeys, lang)}</a>
+          <a href={href(lang, '/2026alps/')}>{t(ui.alps, lang)}</a>
+          <a class="lang num" href={switchPath(path, other)} hreflang={other} lang={other}>
+            <span aria-hidden="true">{lang === 'ja' ? 'JA' : 'EN'}</span>
+            <span class="sep" aria-hidden="true">/</span>
+            <span>{t(ui.switchTo, lang)}</span>
+          </a>
+          <button class="theme" type="button" aria-label={lang === 'ja' ? '表示テーマを切り替え' : 'Toggle colour theme'}>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site">
+      <div class="wrap">
+        <p class="logo num">naoto.online</p>
+        <p>{t(ui.footer, lang)}</p>
+        <p class="num">© 2008–2026 Naoto Yamabe</p>
+      </div>
+    </footer>
+    <script>
+      // ヒーローに重ねたヘッダーは、スクロールしたら通常の背景つきに切り替える
+      const hdr = document.querySelector<HTMLElement>('header.site.overlay');
+      if (hdr) {
+        const onScroll = () => hdr.classList.toggle('solid', scrollY > innerHeight * 0.5);
+        addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+      const btn = document.querySelector<HTMLButtonElement>('header.site .theme');
+      btn?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const cur = root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch {}
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--snow) 86%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+    view-transition-name: site-header;
+  }
+  header.site.overlay {
+    position: fixed;
+    inset: 0 0 auto 0;
+    background: linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 0;
+    color: #fff;
+  }
+  header.site.overlay.solid {
+    background: color-mix(in srgb, var(--snow) 86%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  header.site {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  .bar {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 12px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2.4vw, 24px);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  nav a {
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .lang {
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+    padding: 2px 10px 0;
+    font-size: 0.75rem;
+    display: inline-flex;
+    gap: 6px;
+  }
+  .lang .sep {
+    opacity: 0.45;
+  }
+  .theme {
+    background: none;
+    border: 0;
+    color: inherit;
+    padding: 4px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  @media (max-width: 560px) {
+    nav a:not(.lang) {
+      display: none;
+    }
+    nav a[href$='2026alps/'] {
+      display: inline;
+    }
+  }
+  footer.site {
+    margin-top: 96px;
+    padding-block: 48px calc(48px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--line);
+    color: var(--rock);
+    font-size: 0.85rem;
+  }
+  footer.site .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    align-items: baseline;
+  }
+  footer.site .logo {
+    color: var(--ink);
+  }
+</style>

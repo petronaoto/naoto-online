@@ -1,0 +1,10 @@
+---
+import LegacyPage from '../../../views/LegacyPage.astro';
+import { LEGACY_TRIPS, legacyTrip } from '../../../lib/legacy';
+
+export function getStaticPaths() {
+  return LEGACY_TRIPS.flatMap((trip) => legacyTrip(trip).pages.map((p) => ({ params: { trip, page: p.slug } })));
+}
+const { trip, page } = Astro.params;
+---
+<LegacyPage lang="en" trip={trip!} slug={page!} />

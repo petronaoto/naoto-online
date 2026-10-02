@@ -1,0 +1,162 @@
+[
+ {
+  "ja": "ミュンヘン",
+  "en": "Munich",
+  "lon": 11.8,
+  "lat": 48.23,
+  "km": 0,
+  "day": 1,
+  "ele": 489,
+  "kind": "town"
+ },
+ {
+  "ja": "インスブルック",
+  "en": "Innsbruck",
+  "lon": 11.4,
+  "lat": 47.26,
+  "km": 185.6,
+  "day": 1,
+  "ele": 688,
+  "kind": "town"
+ },
+ {
+  "ja": "ブレンナー峠",
+  "en": "Brenner Pass",
+  "lon": 11.5056,
+  "lat": 47.0026,
+  "km": 219.3,
+  "day": 1,
+  "ele": 1370,
+  "kind": "pass"
+ },
+ {
+  "ja": "ヴィピテーノ",
+  "en": "Vipiteno",
+  "lon": 11.431,
+  "lat": 46.896,
+  "km": 241.1,
+  "day": 1,
+  "ele": 931,
+  "kind": "stay"
+ },
+ {
+  "ja": "ガルデナ峠",
+  "en": "Passo Gardena",
+  "lon": 11.8075,
+  "lat": 46.5494,
+  "km": 316.5,
+  "day": 2,
+  "ele": 2121,
+  "kind": "pass"
+ },
+ {
+  "ja": "カンポロンゴ峠",
+  "en": "Passo Campolongo",
+  "lon": 11.873,
+  "lat": 46.5207,
+  "km": 332.7,
+  "day": 2,
+  "ele": 1875,
+  "kind": "pass"
+ },
+ {
+  "ja": "ポルドイ峠",
+  "en": "Passo Pordoi",
+  "lon": 11.8125,
+  "lat": 46.4877,
+  "km": 349.9,
+  "day": 2,
+  "ele": 2239,
+  "kind": "pass"
+ },
+ {
+  "ja": "セラ峠",
+  "en": "Passo Sella",
+  "lon": 11.7576,
+  "lat": 46.5087,
+  "km": 362.0,
+  "day": 2,
+  "ele": 2244,
+  "kind": "pass"
+ },
+ {
+  "ja": "ボルツァーノ",
+  "en": "Bolzano",
+  "lon": 11.354,
+  "lat": 46.498,
+  "km": 414.3,
+  "day": 2,
+  "ele": 269,
+  "kind": "stay"
+ },
+ {
+  "ja": "ステルヴィオ峠",
+  "en": "Stelvio Pass",
+  "lon": 10.4532,
+  "lat": 46.5286,
+  "km": 522.7,
+  "day": 3,
+  "ele": 2758,
+  "kind": "pass"
+ },
+ {
+  "ja": "フォスカーニョ峠",
+  "en": "Passo di Foscagno",
+  "lon": 10.2058,
+  "lat": 46.4917,
+  "km": 565.6,
+  "day": 3,
+  "ele": 2291,
+  "kind": "pass"
+ },
+ {
+  "ja": "リヴィーニョ",
+  "en": "Livigno",
+  "lon": 10.135,
+  "lat": 46.538,
+  "km": 576.8,
+  "day": 3,
+  "ele": 2112,
+  "kind": "stay"
+ },
+ {
+  "ja": "フェルン峠",
+  "en": "Fern Pass",
+  "lon": 10.8325,
+  "lat": 47.3602,
+  "km": 746.4,
+  "day": 4,
+  "ele": 1212,
+  "kind": "pass"
+ },
+ {
+  "ja": "フュッセン",
+  "en": "Füssen",
+  "lon": 10.701,
+  "lat": 47.57,
+  "km": 788.9,
+  "day": 4,
+  "ele": 808,
+  "kind": "stay"
+ },
+ {
+  "ja": "ノイシュヴァンシュタイン城",
+  "en": "Neuschwanstein",
+  "lon": 10.749,
+  "lat": 47.557,
+  "km": 793.9,
+  "day": 5,
+  "ele": 786,
+  "kind": "sight"
+ },
+ {
+  "ja": "ミュンヘン（返却）",
+  "en": "Munich (return)",
+  "lon": 11.8,
+  "lat": 48.23,
+  "km": 956.82,
+  "day": 5,
+  "ele": 489,
+  "kind": "town"
+ }
+]

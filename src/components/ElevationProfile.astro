@@ -1,0 +1,338 @@
+---
+/**
+ * 標高プロファイル（実ルート沿いの地形標高）。
+ * - 全行程表示: 友人と走った区間（Day1–3）は塗り＋実線、単独区間（Day4–5）は破線
+ * - range 指定時: その日の区間を拡大表示（前後の区間は薄く）
+ * ポインタを重ねると、その地点の距離と標高を表示する。
+ */
+import profile from '../data/alps/profile.json';
+import places from '../data/alps/places.json';
+import { href, t, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  range?: [number, number];
+  /** 日ごとのページへのリンクを付ける */
+  linkDays?: boolean;
+  compact?: boolean;
+}
+const { lang, range, linkDays = false, compact = false } = Astro.props;
+
+type P = [number, number, number]; // day, km, ele
+const pts = profile as P[];
+const total = pts[pts.length - 1][1];
+const [k0, k1] = range ?? [0, total];
+const W = 1000;
+const H = compact ? 170 : 230;
+const top = compact ? 30 : 46;
+const base = H - 28;
+const eMax = 3000;
+const x = (km: number) => ((km - k0) / (k1 - k0)) * W;
+const y = (e: number) => base - (e / eMax) * (base - top);
+const inView = pts.filter((p) => p[1] >= k0 - 5 && p[1] <= k1 + 5);
+const line = (arr: P[]) => arr.map((p, i) => `${i ? 'L' : 'M'}${x(p[1]).toFixed(1)},${y(p[2]).toFixed(1)}`).join(' ');
+const SOLO_KM = 577;
+const together = inView.filter((p) => p[1] <= SOLO_KM);
+const solo = inView.filter((p) => p[1] >= SOLO_KM);
+const area = (arr: P[]) => (arr.length ? `${line(arr)} L${x(arr[arr.length - 1][1]).toFixed(1)},${base} L${x(arr[0][1]).toFixed(1)},${base} Z` : '');
+
+const dayBounds = [0, 235, 416, 577, 789, total];
+const days = [1, 2, 3, 4, 5]
+  .map((d) => ({ d, a: dayBounds[d - 1], b: dayBounds[d] }))
+  .filter((r) => r.b > k0 && r.a < k1);
+const grid = [1000, 2000, 3000];
+
+const zoomed = !!range;
+const passes = (places as any[]).filter((p) => p.kind === 'pass' && p.km >= k0 && p.km <= k1);
+// 全体表示ではセラロンダの4峠をまとめて1つのラベルにする
+const sellaRonda = ['Passo Gardena', 'Passo Campolongo', 'Passo Pordoi', 'Passo Sella'];
+const labelled = zoomed ? passes : passes.filter((p) => !sellaRonda.includes(p.en));
+const showSR = !zoomed && passes.some((p) => sellaRonda.includes(p.en));
+const daySlug = (d: number) => `/2026alps/day${d}/`;
+const data = JSON.stringify(inView.map((p) => [p[0], Math.round(p[1] * 10) / 10, p[2]]));
+---
+
+<figure class:list={['elev', { compact }]} data-k0={k0} data-k1={k1} data-points={data} data-lang={lang}>
+  {
+    !compact && (
+      <figcaption class="head">
+        <span class="eyebrow">{t(ui.elevation, lang)}</span>
+        <span class="legend">
+          <span><i class="sw solid" />{t(ui.together, lang)}</span>
+          <span><i class="sw dash" />{t(ui.solo, lang)}</span>
+        </span>
+      </figcaption>
+    )
+  }
+  <div class="plot">
+    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img" aria-label={`${t(ui.elevation, lang)}: ${Math.round(k0)}–${Math.round(k1)} km`}>
+      {grid.map((g) => <line class="grid" x1="0" x2={W} y1={y(g)} y2={y(g)} />)}
+      {days.slice(1).map((r) => <line class="dayline" x1={x(r.a)} x2={x(r.a)} y1={top - 18} y2={base} />)}
+      {together.length > 1 && <path class="fill" d={area(together)} />}
+      {together.length > 1 && <path class="stroke" d={line(together)} />}
+      {solo.length > 1 && <path class="stroke solo" d={line(solo)} />}
+      <line class="baseline" x1="0" x2={W} y1={base} y2={base} />
+      <line class="cursor" x1="0" x2="0" y1={top - 10} y2={base} />
+    </svg>
+    <div class="labels" aria-hidden="true">
+      {grid.slice(0, 2).map((g) => <span class="gl num" style={`top:${(y(g) / H) * 100}%`}>{g.toLocaleString()} m</span>)}
+      {
+        labelled.map((p) => (
+          <span
+            class:list={['pass num', { hi: p.en === 'Stelvio Pass' }]}
+            style={`left:${(x(p.km) / W) * 100}%;top:${(y(p.ele) / H) * 100}%`}
+          >
+            <i />
+            <b>{lang === 'ja' ? p.ja : p.en.replace('Passo di ', '').replace('Passo ', '').replace(' Pass', '')}</b>
+            <small>{p.ele.toLocaleString()} m</small>
+          </span>
+        ))
+      }
+      {
+        showSR && (
+          <span class="pass group num" style={`left:${(x(340) / W) * 100}%;top:${(y(2290) / H) * 100}%`}>
+            <b>{lang === 'ja' ? 'セラロンダ 4峠' : 'Sella Ronda · 4 passes'}</b>
+          </span>
+        )
+      }
+      <span class="tip num" hidden></span>
+    </div>
+  </div>
+  <div class="days num">
+    {
+      days.map((r) => {
+        const a = Math.max(r.a, k0);
+        const b = Math.min(r.b, k1);
+        const style = `left:${(x(a) / W) * 100}%;width:${((x(b) - x(a)) / W) * 100}%`;
+        return linkDays ? (
+          <a href={href(lang, daySlug(r.d))} style={style}>
+            DAY {r.d}
+          </a>
+        ) : (
+          <span style={style}>DAY {r.d}</span>
+        );
+      })
+    }
+  </div>
+  {!compact && <p class="note">{t(ui.profileNote, lang)}</p>}
+</figure>
+
+<script>
+  function setup(fig: HTMLElement) {
+    const pts: [number, number, number][] = JSON.parse(fig.dataset.points!);
+    const k0 = +fig.dataset.k0!;
+    const k1 = +fig.dataset.k1!;
+    const ja = fig.dataset.lang === 'ja';
+    const plot = fig.querySelector<HTMLElement>('.plot')!;
+    const tip = fig.querySelector<HTMLElement>('.tip')!;
+    const cursor = fig.querySelector<SVGLineElement>('.cursor')!;
+    const move = (ev: PointerEvent) => {
+      const r = plot.getBoundingClientRect();
+      const fx = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+      const km = k0 + fx * (k1 - k0);
+      let best = pts[0];
+      for (const p of pts) if (Math.abs(p[1] - km) < Math.abs(best[1] - km)) best = p;
+      const bx = (best[1] - k0) / (k1 - k0);
+      cursor.setAttribute('x1', String(bx * 1000));
+      cursor.setAttribute('x2', String(bx * 1000));
+      cursor.style.opacity = '1';
+      tip.hidden = false;
+      tip.style.left = `${bx * 100}%`;
+      tip.textContent = `DAY ${best[0]} · ${Math.round(best[1])} km · ${best[2].toLocaleString()} m`;
+      tip.classList.toggle('flip', bx > 0.7);
+    };
+    const leave = () => {
+      tip.hidden = true;
+      cursor.style.opacity = '0';
+    };
+    plot.addEventListener('pointermove', move);
+    plot.addEventListener('pointerdown', move);
+    plot.addEventListener('pointerleave', leave);
+    void ja;
+  }
+  document.querySelectorAll<HTMLElement>('figure.elev').forEach(setup);
+</script>
+
+<style>
+  .elev {
+    margin: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .legend {
+    display: flex;
+    gap: 16px;
+    font-size: 0.75rem;
+    color: var(--rock);
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sw {
+    display: inline-block;
+    width: 22px;
+    height: 0;
+    border-top: 2.5px solid var(--accent);
+  }
+  .sw.dash {
+    border-top: 2px dashed var(--solo);
+  }
+  .plot {
+    position: relative;
+    touch-action: pan-y;
+    cursor: crosshair;
+  }
+  svg {
+    width: 100%;
+    height: clamp(150px, 22vw, 230px);
+    overflow: visible;
+  }
+  .compact svg {
+    height: clamp(110px, 16vw, 170px);
+  }
+  .grid {
+    stroke: var(--line);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .dayline {
+    stroke: var(--line);
+    stroke-dasharray: 3 5;
+    vector-effect: non-scaling-stroke;
+  }
+  .baseline {
+    stroke: var(--ink);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .fill {
+    fill: var(--accent);
+    opacity: 0.14;
+  }
+  .stroke {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .stroke.solo {
+    stroke: var(--solo);
+    stroke-width: 2;
+    stroke-dasharray: 6 5;
+  }
+  .cursor {
+    stroke: var(--ink);
+    stroke-width: 1;
+    opacity: 0;
+    vector-effect: non-scaling-stroke;
+  }
+  .labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .gl {
+    position: absolute;
+    left: 0;
+    transform: translateY(-120%);
+    font-size: 0.65rem;
+    color: var(--rock);
+  }
+  .pass {
+    position: absolute;
+    transform: translate(-50%, calc(-100% - 6px));
+    display: grid;
+    justify-items: center;
+    line-height: 1.15;
+    font-size: 0.68rem;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+  .pass i {
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+  }
+  .pass small {
+    color: var(--rock);
+    font-size: 0.62rem;
+  }
+  .pass.hi b {
+    font-size: 0.85rem;
+    font-weight: 900;
+  }
+  .pass.hi i {
+    background: var(--accent);
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    bottom: -11px;
+  }
+  .pass.group {
+    transform: translate(-50%, -100%);
+  }
+  @media (max-width: 640px) {
+    .pass:not(.hi):not(.group) small {
+      display: none;
+    }
+    .elev:not(.compact) .pass:not(.hi):not(.group) b {
+      font-size: 0.6rem;
+    }
+  }
+  .tip {
+    position: absolute;
+    top: -6px;
+    transform: translate(8px, -100%);
+    background: var(--ink);
+    color: var(--snow);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px 1px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .tip.flip {
+    transform: translate(calc(-100% - 8px), -100%);
+  }
+  .days {
+    position: relative;
+    height: 1.6em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .days > * {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    text-decoration: none;
+    border-top: 2px solid var(--ink);
+    padding-top: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .days a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .note {
+    font-size: 0.72rem;
+    color: var(--rock);
+  }
+</style>

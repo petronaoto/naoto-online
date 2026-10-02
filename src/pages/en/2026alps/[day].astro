@@ -1,0 +1,10 @@
+---
+import AlpsDay from '../../../views/AlpsDay.astro';
+import { alpsDays } from '../../../data/alps';
+
+export function getStaticPaths() {
+  return alpsDays.map((day) => ({ params: { day: day.slug }, props: { day } }));
+}
+const { day } = Astro.props;
+---
+<AlpsDay lang="en" day={day} />
