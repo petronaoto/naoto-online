@@ -83,7 +83,7 @@ const data = JSON.stringify(inView.map((p) => [p[0], Math.round(p[1] * 10) / 10,
             style={`left:${(x(p.km) / W) * 100}%;top:${(y(p.ele) / H) * 100}%`}
           >
             <i />
-            <b>{lang === 'ja' ? p.ja : p.en.replace('Passo ', '').replace(' Pass', '').replace('Passo di ', '')}</b>
+            <b>{lang === 'ja' ? p.ja : p.en.replace('Passo di ', '').replace('Passo ', '').replace(' Pass', '')}</b>
             <small>{p.ele.toLocaleString()} m</small>
           </span>
         ))
