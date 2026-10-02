@@ -1,0 +1,10 @@
+---
+import LegacyTop from '../../../views/LegacyTop.astro';
+import { LEGACY_TRIPS } from '../../../lib/legacy';
+
+export function getStaticPaths() {
+  return LEGACY_TRIPS.map((trip) => ({ params: { trip } }));
+}
+const { trip } = Astro.params;
+---
+<LegacyTop lang="en" slug={trip!} />

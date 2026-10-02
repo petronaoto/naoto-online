@@ -1,0 +1,189 @@
+---
+import Base from '../layouts/Base.astro';
+import LegacyBlocks from '../components/LegacyBlocks.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { tripBySlug } from '../data/trips';
+import { legacyTrip, legacyEn, tocItems } from '../lib/legacy';
+import { href, t, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  trip: string;
+  slug: string;
+}
+const { lang, trip: tripSlug, slug } = Astro.props;
+const trip = tripBySlug(tripSlug);
+const data = legacyTrip(tripSlug);
+const page = data.pages.find((p) => p.slug === slug)!;
+const toc = tocItems(tripSlug, lang);
+const i = toc.findIndex((x) => x.slug === slug);
+const cur = toc[i];
+const prev = toc[i - 1];
+const next = toc[i + 1];
+const translated = lang === 'ja' || !!legacyEn(tripSlug)[slug]?.texts;
+const imgCount = page.blocks.filter((b) => b.type === 'image').length;
+---
+
+<Base lang={lang} title={`${cur.label ? cur.label + ' ' : ''}${cur.title} | ${t(trip.title, lang)}`} description={t(trip.summary, lang)}>
+  <article>
+    <header class="head wrap">
+      <p class="crumb num">
+        <a href={href(lang, `/${tripSlug}/`)}>{t(trip.title, lang)}</a>
+        <span aria-hidden="true">/</span>
+        <span>{trip.year}</span>
+      </p>
+      <div class="progress num" aria-hidden="true">
+        {toc.map((x, j) => <i class:list={{ on: j === i, done: j < i }} />)}
+      </div>
+      {cur.label && <p class="lab num">{cur.label}</p>}
+      <h1 lang={cur.translated ? undefined : 'ja'}>{cur.title}</h1>
+      <p class="meta num">
+        {i + 1} / {toc.length} · {imgCount} {lang === 'ja' ? '枚の写真' : 'photos'}
+      </p>
+    </header>
+
+    {lang === 'en' && !translated && <p class="prose note">This page was written in Japanese. An English translation is being prepared.</p>}
+    {lang === 'en' && translated && <p class="prose note">{t(ui.translatedNote, lang)}</p>}
+
+    <div class="body">
+      <LegacyBlocks trip={tripSlug} slug={slug} blocks={page.blocks} lang={lang} />
+    </div>
+
+    <nav class="wrap pager" aria-label={lang === 'ja' ? '前後のページ' : 'Previous and next page'}>
+      {
+        prev ? (
+          <a class="prev" href={href(lang, prev.href)}>
+            <span class="num">← {prev.label || t(ui.prev, lang)}</span>
+            <b lang={prev.translated ? undefined : 'ja'}>{prev.title}</b>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      <a class="toc" href={href(lang, `/${tripSlug}/`)}>{t(ui.backToTrip, lang)}</a>
+      {
+        next ? (
+          <a class="next" href={href(lang, next.href)}>
+            <span class="num">{next.label || t(ui.next, lang)} →</span>
+            <b lang={next.translated ? undefined : 'ja'}>{next.title}</b>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
+  </article>
+  <Lightbox />
+</Base>
+
+<style>
+  .head {
+    padding-top: 40px;
+    display: grid;
+    gap: 8px;
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+  }
+  .crumb {
+    display: flex;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--rock);
+  }
+  .crumb a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .crumb a:hover {
+    color: var(--accent);
+  }
+  .progress {
+    display: flex;
+    gap: 3px;
+    margin: 6px 0 10px;
+  }
+  .progress i {
+    flex: 1;
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .progress i.done {
+    background: color-mix(in srgb, var(--accent) 45%, var(--line));
+  }
+  .progress i.on {
+    background: var(--accent);
+  }
+  .lab {
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  h1 {
+    font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+    font-weight: 900;
+  }
+  .meta {
+    font-size: 0.75rem;
+    color: var(--rock);
+  }
+  .note {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: var(--rock);
+    font-style: italic;
+  }
+  .body {
+    padding-top: 36px;
+    display: grid;
+    gap: 28px;
+  }
+  .pager {
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    border-top: 2px solid var(--ink);
+    padding-top: 20px;
+  }
+  .pager a {
+    text-decoration: none;
+    display: grid;
+    gap: 2px;
+  }
+  .pager .num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .pager b {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .pager .next {
+    text-align: right;
+  }
+  .pager .toc {
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 6px 14px 4px;
+    white-space: nowrap;
+  }
+  .pager a:hover b {
+    color: var(--accent);
+  }
+  @media (max-width: 640px) {
+    .pager {
+      grid-template-columns: 1fr 1fr;
+    }
+    .pager .toc {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-self: center;
+    }
+  }
+</style>

@@ -1,0 +1,260 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ElevationProfile from '../components/ElevationProfile.astro';
+import RouteMap from '../components/RouteMap.astro';
+import { tripBySlug } from '../data/trips';
+import { alpsDays, alpsIntro } from '../data/alps';
+import { alpsImage } from '../lib/images';
+import { href, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const trip = tripBySlug('2026alps');
+---
+
+<Base lang={lang} title={t(trip.title, lang)} description={t(trip.summary, lang)} overlayHeader ogImage="/og.jpg">
+  <section class="hero">
+    <Picture src={alpsImage('d3-clouds')} alt={lang === 'ja' ? 'ステルヴィオ峠の上、雲海と氷河の山々' : 'Above the Stelvio: a sea of cloud and glaciated peaks'} formats={['avif']} fallbackFormat="webp" widths={[640, 960, 1400, 1920, 2400]} sizes="100vw" loading="eager" fetchpriority="high" class="bg" />
+    <div class="in wrap">
+      <p class="eyebrow">{t(trip.period, lang)}</p>
+      <h1>{t(trip.title, lang)}</h1>
+      <p class="sub">{t(trip.subtitle, lang)}</p>
+      <div class="signs">
+        {trip.metrics.map((m) => <span class="sign">{m.value}{m.unit && ` ${t(m.unit, lang)}`}</span>)}
+        <span class="sign">BMW R 1250 GS</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro prose">
+    {alpsIntro.map((p, i) => <p class:list={{ lead: i === 0 }}>{t(p, lang)}</p>)}
+    <p class="km num" aria-hidden="true">
+      <span>境港 SAKAIMINATO 2026.05</span>
+      <span class="line friend">≈ 27,000 km</span>
+      <span>MÜNCHEN 09.27</span>
+      <span class="line me">958 km</span>
+    </p>
+  </section>
+
+  <section class="wrap block">
+    <ElevationProfile lang={lang} linkDays />
+  </section>
+
+  <section class="wrap block" id="map">
+    <div class="sec-head"><h2>{lang === 'ja' ? 'ルート' : 'Route'}</h2><p class="eyebrow">MÜNCHEN · DOLOMITI · STELVIO · ENGADIN · FÜSSEN</p></div>
+    <RouteMap lang={lang} />
+  </section>
+
+  <section class="wrap block" aria-labelledby="days-h">
+    <div class="sec-head"><h2 id="days-h">{lang === 'ja' ? '日ごとの記録' : 'Day by day'}</h2><p class="eyebrow">{alpsDays.length} CHAPTERS</p></div>
+    <ol class="days">
+      {
+        alpsDays.map((d) => (
+          <li>
+            <a href={href(lang, `/2026alps/${d.slug}/`)}>
+              <Picture src={alpsImage(d.cover)} alt="" formats={['avif']} fallbackFormat="webp" widths={[400, 700, 1000]} sizes="(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw" />
+              <div class="txt">
+                <p class="lab num">
+                  <b>{t(d.label, lang)}</b>
+                  <span>{t(d.date, lang)}</span>
+                </p>
+                <h3>{t(d.title, lang)}</h3>
+                <p class="route">{t(d.route, lang)}</p>
+                <p class="foot num">
+                  {d.distance ? <span>{d.distance} km</span> : <span>✈</span>}
+                  {d.slug !== 'prologue' && <span class:list={['tag', { solo: !d.together }]}>{d.together ? (lang === 'ja' ? '友人と' : 'Together') : lang === 'ja' ? '単独' : 'Solo'}</span>}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: min(78svh, 720px);
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    background: #2b3034;
+    overflow: hidden;
+  }
+  .hero :global(.bg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.62));
+  }
+  .in {
+    position: relative;
+    z-index: 1;
+    padding-block: 120px clamp(28px, 5vw, 56px);
+    display: grid;
+    gap: 12px;
+    justify-items: start;
+  }
+  .in .eyebrow {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+  .sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+  }
+  .signs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .intro {
+    padding-block: 56px 16px;
+    display: grid;
+    gap: 1.2em;
+  }
+  .intro .lead {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .km {
+    display: grid;
+    grid-template-columns: auto 1fr auto 0.5fr;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--rock);
+    margin-top: 1em;
+  }
+  .km .line {
+    border-top: 3px solid currentColor;
+    text-align: center;
+    padding-top: 4px;
+  }
+  .km .friend {
+    color: var(--ink-2);
+    border-top-style: dotted;
+  }
+  .km .me {
+    color: var(--accent);
+  }
+  @media (max-width: 560px) {
+    .km {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+  .block {
+    padding-top: 56px;
+    display: grid;
+    gap: 20px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  .sec-head h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+  }
+  .days {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .days a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .days :global(img) {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    width: 100%;
+  }
+  .txt {
+    padding: 16px 18px 18px;
+    display: grid;
+    gap: 6px;
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .lab {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    font-size: 0.75rem;
+    color: var(--rock);
+  }
+  .lab b {
+    color: var(--accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+  .days a:hover h3 {
+    color: var(--accent);
+  }
+  .route {
+    font-size: 0.8rem;
+    color: var(--rock);
+    line-height: 1.6;
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1.1rem;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 1px 10px 0;
+  }
+  .tag.solo {
+    border-style: dashed;
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+</style>

@@ -1,0 +1,354 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ElevationProfile from '../components/ElevationProfile.astro';
+import { trips } from '../data/trips';
+import { alpsImage } from '../lib/images';
+import { href, t, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const alps = trips[0];
+const legacy = trips.slice(1);
+const hero = alpsImage('d3-switchbacks');
+const desc =
+  lang === 'ja'
+    ? 'Naoto Yamabe の旅行記。2026年、ユーラシアを走ってきた後輩とアルプスを越えたバイクツーリングと、カナダ・北海道・インドネシアの旅の記録。'
+    : 'Travel journals by Naoto Yamabe: a 2026 motorcycle ride across the Alps with a friend who had ridden across Eurasia, plus earlier journeys in Canada, Hokkaido and Indonesia.';
+---
+
+<Base lang={lang} title="naoto.online" description={desc} overlayHeader ogImage="/og.jpg">
+  <section class="hero">
+    <Picture
+      src={hero}
+      alt={t(alps.coverAlt, lang)}
+      formats={['avif']} fallbackFormat="webp"
+      widths={[640, 960, 1400, 1920, 2400]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="bg"
+    />
+    <div class="in wrap">
+      <p class="alt num" aria-label="2,758 m">2,758<small>m</small></p>
+      <h1>
+        {
+          lang === 'ja' ? (
+            <>ステルヴィオ峠。<br />ユーラシア大陸を27,000km走ってきた後輩と、<br class="pc" />アルプスを越えた3日間。</>
+          ) : (
+            <>The Stelvio Pass. Three days across the Alps with a friend who had just ridden 27,000 km across Eurasia.</>
+          )
+        }
+      </h1>
+      <div class="signs">
+        <span class="sign">PASSO DELLO STELVIO</span>
+        <span class="sign">958 km</span>
+        <span class="sign">2026.09.26 – 10.04</span>
+      </div>
+      <a class="cta" href={href(lang, '/2026alps/')}>{t(ui.readJournal, lang)} <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="profile wrap" aria-labelledby="profile-h">
+    <h2 id="profile-h" class="visually-hidden">{t(ui.elevation, lang)}</h2>
+    <ElevationProfile lang={lang} linkDays />
+  </section>
+
+  <section class="journeys wrap" id="journeys" aria-labelledby="journeys-h">
+    <div class="sec-head">
+      <h2 id="journeys-h">{t(ui.allJourneys, lang)}</h2>
+      <p class="eyebrow">2008 — 2026</p>
+    </div>
+
+    <a class="feature" href={href(lang, `/${alps.slug}/`)}>
+      <Picture src={alpsImage('d2-cir')} alt={lang === 'ja' ? 'ガルデナ峠から見たチル山群' : 'The Cir peaks from Passo Gardena'} formats={['avif']} fallbackFormat="webp" widths={[480, 800, 1200]} sizes="(min-width: 900px) 55vw, 100vw" />
+      <div class="txt">
+        <p class="year num">{alps.year}</p>
+        <h3>{t(alps.title, lang)}</h3>
+        <p class="sub">{t(alps.subtitle, lang)}</p>
+        <p class="sum">{t(alps.summary, lang)}</p>
+        <dl class="metrics">
+          {
+            alps.metrics.map((m) => (
+              <div>
+                <dt>{t(m.label, lang)}</dt>
+                <dd class="num">
+                  {m.value}
+                  {m.unit && <small>{t(m.unit, lang)}</small>}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </a>
+
+    <ul class="list">
+      {
+        legacy.map((trip) => (
+          <li>
+            <a href={href(lang, `/${trip.slug}/`)}>
+              <Picture src={trip.cover} alt={t(trip.coverAlt, lang)} formats={['avif']} fallbackFormat="webp" widths={[320, 480, trip.cover.width]} sizes="(min-width: 900px) 25vw, (min-width: 560px) 50vw, 100vw" />
+              <div class="txt">
+                <p class="year num">
+                  {trip.year} <span>{trip.when.split(' ')[0]}</span>
+                </p>
+                <h3>{t(trip.title, lang)}</h3>
+                <p class="sub">{t(trip.subtitle, lang)}</p>
+                <p class="m num">
+                  {trip.metrics.map((m) => (
+                    <span>
+                      {m.value}
+                      {m.unit && ` ${t(m.unit, lang)}`}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .hero {
+    position: relative;
+    min-height: min(92svh, 860px);
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    background: #2b3034;
+    overflow: hidden;
+  }
+  .hero :global(.bg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 35%, rgba(0, 0, 0, 0.62));
+  }
+  .in {
+    position: relative;
+    z-index: 1;
+    padding-block: 120px clamp(28px, 5vw, 56px);
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+  }
+  .alt {
+    font-weight: 900;
+    font-size: clamp(4.2rem, 15vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.035em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  }
+  .alt small {
+    font-size: 0.34em;
+    letter-spacing: 0;
+    margin-left: 0.12em;
+  }
+  h1 {
+    font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+    font-weight: 900;
+    line-height: 1.55;
+    max-width: 38em;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  }
+  :lang(en) h1 {
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .signs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cta {
+    margin-top: 6px;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    color: #14181b;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 18px 8px;
+    border-radius: 999px;
+    transition: transform 0.2s;
+  }
+  .cta:hover {
+    transform: translateX(4px);
+  }
+  @media (max-width: 720px) {
+    .pc {
+      display: none;
+    }
+  }
+  .profile {
+    padding-block: 40px 8px;
+  }
+  .journeys {
+    padding-block: 56px 0;
+    display: grid;
+    gap: 28px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  .sec-head h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+  }
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  .feature :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 280px;
+  }
+  .feature .txt {
+    padding: clamp(20px, 3vw, 36px);
+    display: grid;
+    gap: 10px;
+    align-content: center;
+  }
+  .year {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .year span {
+    font-size: 0.4em;
+    letter-spacing: 0.12em;
+    color: var(--rock);
+    vertical-align: middle;
+  }
+  .feature h3 {
+    font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+    font-weight: 900;
+  }
+  .sub {
+    color: var(--ink-2);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .sum {
+    color: var(--rock);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  .metrics {
+    display: flex;
+    gap: 24px;
+    margin: 8px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .metrics div {
+    display: grid;
+  }
+  .metrics dt {
+    font-size: 0.7rem;
+    color: var(--rock);
+  }
+  .metrics dd {
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+  .metrics small {
+    font-size: 0.5em;
+    margin-left: 3px;
+  }
+  .feature:hover h3,
+  .list a:hover h3 {
+    color: var(--accent);
+  }
+  @media (max-width: 820px) {
+    .feature {
+      grid-template-columns: 1fr;
+    }
+    .feature :global(img) {
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+  }
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .list a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .list :global(img) {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+  }
+  .list .txt {
+    padding: 16px 18px 18px;
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+  .list h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+  .list .year {
+    font-size: 1.5rem;
+  }
+  .m {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--rock);
+    margin-top: 4px;
+  }
+</style>

@@ -1,0 +1,402 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ElevationProfile from '../components/ElevationProfile.astro';
+import Photo from '../components/Photo.astro';
+import Lightbox from '../components/Lightbox.astro';
+import profile from '../data/alps/profile.json';
+import places from '../data/alps/places.json';
+import { alpsDays, type AlpsDay } from '../data/alps';
+import { alpsImage } from '../lib/images';
+import { href, t, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  day: AlpsDay;
+}
+const { lang, day } = Astro.props;
+const i = alpsDays.findIndex((d) => d.slug === day.slug);
+const prev = alpsDays[i - 1];
+const next = alpsDays[i + 1];
+const ranged = day.kmFrom !== undefined && day.kmTo !== undefined;
+const pts = ranged ? (profile as [number, number, number][]).filter((p) => p[1] >= day.kmFrom! - 2 && p[1] <= day.kmTo! + 2).map((p) => [Math.round(p[1] * 10) / 10, p[2]]) : [];
+// 最高地点: 区間内に峠があれば公称標高、なければ地形データの最大値
+const passMax = ranged ? Math.max(0, ...(places as any[]).filter((p) => p.kind === 'pass' && p.km >= day.kmFrom! && p.km <= day.kmTo!).map((p) => p.ele)) : 0;
+const dayMax = passMax || (pts.length ? Math.max(...pts.map((p) => p[1])) : 0);
+const firstPhoto = day.blocks.find((b) => b.type === 'photo')?.key;
+const desc = `${t(day.date, lang)} — ${t(day.route, lang)}`;
+---
+
+<Base lang={lang} title={`${t(day.label, lang)} ${t(day.title, lang)}`} description={desc} ogImage="/og.jpg">
+  <article>
+    <header class="head">
+      <div class="cover">
+        <Picture src={alpsImage(day.cover)} alt="" formats={['avif']} fallbackFormat="webp" widths={[640, 960, 1400, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
+      </div>
+      <div class="wrap titles">
+        <p class="lab num"><a href={href(lang, '/2026alps/')}>{lang === 'ja' ? 'アルプス 2026' : 'Alps 2026'}</a> / <b>{t(day.label, lang)}</b></p>
+        <h1>{t(day.title, lang)}</h1>
+        <p class="date">{t(day.date, lang)}</p>
+        <p class="route">{t(day.route, lang)}</p>
+        <div class="signs">
+          {day.distance && <span class="sign">{day.distance} km</span>}
+          {dayMax > 0 && <span class="sign">▲ {dayMax.toLocaleString()} m</span>}
+          {day.slug !== 'prologue' && <span class="sign">{day.together ? (lang === 'ja' ? '友人と' : 'TOGETHER') : lang === 'ja' ? '単独' : 'SOLO'}</span>}
+        </div>
+      </div>
+    </header>
+
+    {
+      ranged && (
+        <div class="altimeter num" data-points={JSON.stringify(pts)} data-from={day.kmFrom} data-to={day.kmTo} aria-hidden="true">
+          <span class="d">{t(day.label, lang)}</span>
+          <span class="bar">
+            <i />
+          </span>
+          <span class="v">
+            <b>{pts[0]?.[1].toLocaleString()}</b> m
+          </span>
+          <span class="k">
+            km <b>0</b> / {day.distance}
+          </span>
+        </div>
+      )
+    }
+
+    {
+      ranged && (
+        <div class="wrap mini">
+          <ElevationProfile lang={lang} range={[day.kmFrom!, day.kmTo!]} compact />
+        </div>
+      )
+    }
+
+    <div class="body">
+      {
+        day.blocks.map((b) => {
+          if (b.type === 'text') return <p class="prose txt">{t(b.body, lang)}</p>;
+          if (b.type === 'marker')
+            return (
+              <p class="prose marker num" data-km={b.km}>
+                <span>km {Math.round(b.km - (day.kmFrom ?? 0))}</span>
+                <b>{t(b.label, lang)}</b>
+              </p>
+            );
+          if (b.type === 'photo')
+            return (
+              <Photo
+                src={alpsImage(b.key)}
+                alt={t(b.caption, lang)}
+                caption={t(b.caption, lang)}
+                meta={[b.time, b.km !== undefined && day.kmFrom !== undefined ? `km ${Math.round(b.km - day.kmFrom)}` : null].filter(Boolean).join(' · ')}
+                km={b.km}
+                class={b.wide ? 'wide' : 'std'}
+                sizes={b.wide ? '(min-width: 1240px) 1200px, 100vw' : '(min-width: 900px) 860px, 100vw'}
+                loading={b.key === firstPhoto ? 'eager' : 'lazy'}
+              />
+            );
+          if (b.type === 'video')
+            return (
+              <figure class="video std" data-km={b.km}>
+                <video src={`/media/alps/${b.key}.mp4`} poster={`/media/alps/${b.key}.jpg`} muted loop playsinline preload="none" data-autoplay />
+                <figcaption>
+                  <span>{t(b.caption, lang)}</span>
+                  <span class="num meta">
+                    {t(ui.video, lang).toUpperCase()}
+                    {b.time && ` · ${b.time}`}
+                  </span>
+                </figcaption>
+              </figure>
+            );
+        })
+      }
+    </div>
+
+    <nav class="wrap pager" aria-label={lang === 'ja' ? '前後の日' : 'Previous and next day'}>
+      {
+        prev ? (
+          <a class="prev" href={href(lang, `/2026alps/${prev.slug}/`)}>
+            <span class="num">← {t(prev.label, lang)}</span>
+            <b>{t(prev.title, lang)}</b>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      <a class="toc" href={href(lang, '/2026alps/')}>{t(ui.backToTrip, lang)}</a>
+      {
+        next ? (
+          <a class="next" href={href(lang, `/2026alps/${next.slug}/`)}>
+            <span class="num">{t(next.label, lang)} →</span>
+            <b>{t(next.title, lang)}</b>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
+  </article>
+  <Lightbox />
+</Base>
+
+<script>
+  // 高度計: 画面中央より上にある最後の写真・距離標の km から、地形標高を表示する
+  const meter = document.querySelector<HTMLElement>('.altimeter');
+  if (meter) {
+    const pts: [number, number][] = JSON.parse(meter.dataset.points!);
+    const from = +meter.dataset.from!;
+    const to = +meter.dataset.to!;
+    const v = meter.querySelector('.v b')!;
+    const k = meter.querySelector('.k b')!;
+    const bar = meter.querySelector<HTMLElement>('.bar i')!;
+    const marks = [...document.querySelectorAll<HTMLElement>('.body [data-km]')];
+    const eleAt = (km: number) => {
+      let best = pts[0];
+      for (const p of pts) if (Math.abs(p[0] - km) < Math.abs(best[0] - km)) best = p;
+      return best[1];
+    };
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = innerHeight * 0.55;
+      let km = from;
+      for (const m of marks) if (m.getBoundingClientRect().top < line) km = +m.dataset.km!;
+      v.textContent = eleAt(km).toLocaleString();
+      k.textContent = String(Math.round(km - from));
+      bar.style.width = `${((km - from) / (to - from)) * 100}%`;
+    };
+    addEventListener('scroll', () => (raf ||= requestAnimationFrame(update)), { passive: true });
+    update();
+  }
+  // 動画は画面に入ったときだけ再生（音なし・ループ）
+  const vids = document.querySelectorAll<HTMLVideoElement>('video[data-autoplay]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vio = new IntersectionObserver(
+    (es) =>
+      es.forEach((e) => {
+        const vd = e.target as HTMLVideoElement;
+        if (e.isIntersecting && !reduce) {
+          vd.preload = 'auto';
+          vd.play().catch(() => {});
+        } else vd.pause();
+      }),
+    { threshold: 0.4 },
+  );
+  vids.forEach((vd) => {
+    if (reduce) vd.controls = true;
+    vio.observe(vd);
+  });
+</script>
+
+<style>
+  .head {
+    display: grid;
+  }
+  .cover :global(img) {
+    width: 100%;
+    height: min(62svh, 620px);
+    object-fit: cover;
+  }
+  .titles {
+    padding-block: 28px 8px;
+    display: grid;
+    gap: 8px;
+  }
+  .lab {
+    font-size: 0.78rem;
+    color: var(--rock);
+    letter-spacing: 0.06em;
+  }
+  .lab a {
+    text-decoration: none;
+  }
+  .lab a:hover {
+    text-decoration: underline;
+  }
+  .lab b {
+    color: var(--accent);
+  }
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 900;
+  }
+  .date {
+    font-weight: 700;
+  }
+  .route {
+    color: var(--rock);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .signs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .altimeter {
+    position: sticky;
+    top: calc(53px + env(safe-area-inset-top, 0px));
+    z-index: 20;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 14px;
+    padding: 8px var(--gutter) 6px;
+    background: var(--sign);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .altimeter .bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .altimeter .bar i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #fff;
+    transition: width 0.4s ease;
+  }
+  .altimeter .v b {
+    font-size: 1.15rem;
+    font-weight: 900;
+  }
+  .altimeter .k {
+    opacity: 0.8;
+  }
+  @media (max-width: 480px) {
+    .altimeter .k {
+      display: none;
+    }
+  }
+  .mini {
+    padding-top: 28px;
+  }
+  .body {
+    padding-top: 40px;
+    display: grid;
+    gap: 36px;
+  }
+  .txt {
+    line-height: 2;
+  }
+  :lang(en) .txt {
+    line-height: 1.75;
+  }
+  .body :global(.std) {
+    width: 100%;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+  .body :global(.wide) {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  @media (min-width: 900px) {
+    .body :global(.std figcaption),
+    .body :global(.wide figcaption) {
+      --cap-pad: 0;
+    }
+  }
+  @media (max-width: 899px) {
+    .body :global(figcaption) {
+      --cap-pad: var(--gutter);
+      padding-inline: var(--gutter);
+    }
+  }
+  .video {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+    max-width: 480px !important;
+  }
+  .video video {
+    width: 100%;
+    background: #000;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+  .video figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px 16px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--rock);
+  }
+  .video .meta {
+    font-size: 0.72rem;
+  }
+  .marker {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-top: 2px dashed var(--line);
+    padding-top: 10px;
+    font-size: 0.8rem;
+    color: var(--rock);
+  }
+  .marker span {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .marker b {
+    color: var(--ink);
+    font-family: var(--font-body);
+  }
+  .pager {
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    border-top: 2px solid var(--ink);
+    padding-top: 20px;
+  }
+  .pager a {
+    text-decoration: none;
+    display: grid;
+    gap: 2px;
+  }
+  .pager .num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .pager b {
+    font-size: 0.95rem;
+  }
+  .pager .next {
+    text-align: right;
+  }
+  .pager .toc {
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 6px 14px 4px;
+    white-space: nowrap;
+  }
+  .pager a:hover b {
+    color: var(--accent);
+  }
+  @media (max-width: 640px) {
+    .pager {
+      grid-template-columns: 1fr 1fr;
+    }
+    .pager .toc {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-self: center;
+    }
+  }
+</style>
